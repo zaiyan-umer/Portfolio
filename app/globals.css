@@ -56,10 +56,15 @@
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+  --gh-hover: #F6F8FA;
+  --gh-green: #1F883D;
+  --gh-hover-green: #1C8139;
+  --gh-blue: #54AEFF;
+  --gh-folder: #54AEFF;
 }
 
 .dark {
-  --background: oklch(0 0 0);
+  --background: #0D1117;
   --foreground: oklch(1 0 0);
   --card: oklch(0.1400 0 0);
   --card-foreground: oklch(1 0 0);
@@ -109,6 +114,8 @@
   --shadow-lg: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 4px 6px -1px hsl(0 0% 0% / 0.18);
   --shadow-xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
+  --gh-hover: #151B23;
+  --gh-folder: #9198A1;
 }
 
 @theme inline {
@@ -162,6 +169,12 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+  --gh-hover: var(--gh-hover);
+  --gh-green : var(--gh-green);
+  --gh-hover-green: var(--gh-hover-green);
+  --gh-blue : var(--gh-blue);
+  --gh-folder : var(--gh-folder);
+  
 }
 @layer base {
   * {
