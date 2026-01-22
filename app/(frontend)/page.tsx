@@ -1,8 +1,9 @@
 'use client'
 import { useEffect, useState } from "react";
-import ContributionCalendar, { type ContributionDay } from "@/components/ContributionCalendar";
+import ContributionCalendar from "@/components/ContributionCalendar";
 import MainBody from "@/components/MainBody";
 import { useSetTheme } from "@/store/theme.store";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const setTheme = useSetTheme();
@@ -18,8 +19,8 @@ export default function Home() {
     <>
       <MainBody />
       <div className="mt-8 max-w-[80vw] mx-auto">
-        <div className="text-xl"></div>
-        <ContributionCalendar  />
+        <Separator className='dark:bg-gray-300/20 mb-6' />
+        <ContributionCalendar />
       </div>
     </>
   );

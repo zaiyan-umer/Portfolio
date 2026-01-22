@@ -75,12 +75,12 @@ const ContributionCalendar: React.FC = ({ weeks = 52 }: { weeks?: number }) => {
   const weekdays = ["", "Mon", "", "Wed", "", "Fri", ""];
 
   return (
-    <div className="w-full overflow-x-auto pb-2">
-      <div className="inline-flex flex-col gap-2">
+    <div className="w-full pb-2">
+      <div className="mb-2 text-xl text-gray-600 dark:text-gray-300">
+        {totalContributions} contributions in the last year
+      </div>
+      <div className="w-full p-4 inline-flex flex-col gap-2 overflow-x-auto rounded-sm border border-black/10 dark:border-gray-200/20">
         {/* Total contributions */}
-        <div className="mb-2 text-xl text-gray-600 dark:text-gray-300">
-          {totalContributions} contributions in the last year
-        </div>
 
         {/* Month labels */}
         <div className="flex items-center text-[10px] text-gray-500 ml-8 gap-1">
@@ -95,7 +95,7 @@ const ContributionCalendar: React.FC = ({ weeks = 52 }: { weeks?: number }) => {
         </div>
 
         {/* Calendar grid */}
-        <div className="flex gap-1 p-4 rounded-sm border border-gray-300/20">
+        <div className="flex gap-1">
           <div className="flex flex-col justify-between text-[10px] text-gray-500 mr-2 h-full">
             {weekdays.map((dayLabel, idx) => (
               <span key={idx} className="h-3.5 leading-3">
