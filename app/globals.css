@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -61,6 +62,7 @@
   --gh-hover-green: #1C8139;
   --gh-blue: #1483e3;
   --gh-folder: #54AEFF;
+  --gh-blue-btn-hover: #1483e3;
 }
 
 .dark {
@@ -116,6 +118,8 @@
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
   --gh-hover: #151B23;
   --gh-folder: #9198A1;
+
+  --submit-btn: #F6F8FA;
 }
 
 @theme inline {
@@ -174,6 +178,8 @@
   --gh-hover-green: var(--gh-hover-green);
   --gh-blue : var(--gh-blue);
   --gh-folder : var(--gh-folder);
+  --gh-blue-btn-hover: var(--gh-blue-btn-hover);
+  --submit-btn: var(--submit-btn);
   
 }
 @layer base {

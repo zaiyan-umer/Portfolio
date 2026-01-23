@@ -10,22 +10,26 @@ import { NavbarTable } from './NavbarTable'
 const MainBody = () => {
     return (
         <div className='max-w-[80vw] mx-auto mt-8'>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-6">
                 <div><Image src={'/avatar.webp'} alt='Logo' width={28} height={24} className='rounded-md mb-1.5 cursor-pointer' /></div>
-                <div className='font-bold text-xl'>My Portfolio</div>
+                <div className='font-bold text-xl'>Hi, I&apos;m Zaiyan</div>
                 <div className='text-xs text-gray-600 dark:text-gray-400 border border-black/10 dark:border-gray-200/20 rounded-xl px-3 py-1'>Public</div>
             </div>
-            <Separator className='dark:bg-gray-300/20' />
-            <div className='grid grid-cols-1 lg:grid-cols-4 mt-6'>
+
+            <div className="relative">
+                <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-px blur-sm bg-linear-to-r from-transparent via-blue-300 dark:via-blue-600 to-transparent opacity-50" />
+            </div>
+            
+            <div className='grid grid-cols-1 lg:grid-cols-4 mt-12'>
                 <div className="col-span-3">
                     <NavbarTable />
                 </div>
                 <div className="col-span-1 mt-8 md:mt-0">
                     <Separator className='block md:hidden' />
-                    <Profile className='mt-4 md:mt-0' />
+                    <Profile className='mt-4 lg:mt-0' />
                 </div>
             </div>
-
         </div>
     )
 }
@@ -43,7 +47,7 @@ const Profile = ({ className }: { className: string }) => {
     return (
         <div className={cn('grid grid-cols-1', className)}>
             <div className='flex flex-col gap-4 px-5'>
-                <div className='font-semibold text-lg'>About</div>
+                <div className='font-semibold text-lg underline decoration-1 decoration-gray-300/70 dark:decoration-gray-300/20 underline-offset-3'>About</div>
                 <div className="name flex gap-1 items-center">
                     <span className='font-semibold text-md'>zaiyan umer</span>
                     <span><VerifiedIcon size={24} fill='var(--gh-blue)' color='var(--gh-hover)' /></span>

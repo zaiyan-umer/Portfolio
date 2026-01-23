@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React, { useEffect, useMemo, useState } from 'react';
 
 export type ContributionDay = {
@@ -15,7 +16,7 @@ const intensityClass = (count: number) => {
 
 const formatDate = (d: Date) => d.toISOString().slice(0, 10);
 
-const ContributionCalendar: React.FC = ({ weeks = 52 }: { weeks?: number }) => {
+const ContributionCalendar = ({ className, weeks = 52 }: { className?: string, weeks?: number }) => {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
 
   useEffect(() => {
@@ -75,7 +76,7 @@ const ContributionCalendar: React.FC = ({ weeks = 52 }: { weeks?: number }) => {
   const weekdays = ["", "Mon", "", "Wed", "", "Fri", ""];
 
   return (
-    <div className="w-full pb-2">
+    <div className={cn('w-full pb-2', className)}>
       <div className="mb-2 text-xl text-gray-600 dark:text-gray-300">
         {totalContributions} contributions in the last year
       </div>
@@ -110,7 +111,7 @@ const ContributionCalendar: React.FC = ({ weeks = 52 }: { weeks?: number }) => {
                 {week.map((day) => (
                   <div
                     key={day.key}
-                    className={`h-3.5 w-3.5 rounded-sm ${intensityClass(day.count)} transition-transform duration-100 hover:scale-110`}
+                    className={`h-3.5 w-3.5 rounded-sm ${intensityClass(day.count)} transition-transform duration-150 hover:scale-140`}
                     title={`${day.key}: ${day.count} contributions`}
                   />
                 ))}

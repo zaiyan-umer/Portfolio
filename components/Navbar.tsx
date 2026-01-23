@@ -5,7 +5,7 @@ import { GithubIcon, LinkedinIcon } from '@sanity/icons'
 import { Moon, Sun } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { motion } from 'motion/react'
 
 
 const Navbar = () => {
@@ -49,28 +49,19 @@ const DarkMode = ({ className }: { className?: string }) => {
     const theme = useTheme();
     const toggleTheme = useToggleTheme();
 
-    const [isRotating, setIsRotating] = useState(false);
-    const [isPressed, setIsPressed] = useState(false);
-
     const handleClick = () => {
-        setIsRotating(true);
-        setIsPressed(true);
         toggleTheme();
-
-        setTimeout(() => setIsRotating(false), 400);
-        setTimeout(() => setIsPressed(false), 150);
     };
 
     return (
-        <button onClick={handleClick} className={cn("cursor-pointer", className)}>
+        <motion.button whileTap={{ scale: 0.8, rotate: 20 }} onClick={handleClick} className={cn("cursor-pointer", className)}>
             {theme === "light" ? (
-                <Sun className={`${isRotating && "rotate-icon"} ${isPressed && "press-effect"}`} />
+                <Sun />
             ) : (
-                <Moon className={`${isRotating && "rotate-icon"} ${isPressed && "press-effect"}`} />
+                <Moon />
             )}
-        </button>
+        </motion.button>
     );
 };
-
 
 export default Navbar

@@ -7,31 +7,36 @@ export const NavbarTable = () => {
             title: "Home",
             description: "Welcome to my portfolio",
             time: "Latest",
-            href: "/"
+            href: "/",
+            scroll: false
         },
         {
             title: "Projects",
             description: "Showcase of my work",
             time: "4 days ago",
-            href: "/projects"
+            href: "/projects",
+            scroll: false
         },
         {
             title: "Blog",
             description: "Tech articles & insights",
             time: "2 weeks ago",
-            href: "/blog"
+            href: "/blog",
+            scroll: false
         },
         {
             title: "About Me",
             description: "Know more about me",
             time: "1 month ago",
-            href: "/about"
+            href: "#about",
+            scroll: true
         },
         {
             title: "Contact",
             description: "Get in touch with me",
             time: "Always",
-            href: "/contact"
+            href: "#contact",
+            scroll: true
         }
     ]
     const files = [
@@ -46,6 +51,7 @@ export const NavbarTable = () => {
             time: "1 week ago",
         }
     ]
+    
     return (
         <div className='navbar border border-black/10 w-full rounded-sm dark:border-gray-200/20'>
             <div className='flex justify-between items-center w-full bg-(--gh-hover) px-4 py-3 border-b border-black/10'>
@@ -54,7 +60,12 @@ export const NavbarTable = () => {
             </div>
             <div className='divide-y divide-red '>
                 {table.map((item, idx) => (
-                    <Link href={item.href} key={idx} className="flex items-center px-4 py-3 hover:bg-(--gh-hover) transition-colors cursor-pointer gap-4">
+                    <Link href={item.href} key={idx} scroll={true} onClick={(e) => {
+                        if (item.scroll && item.href.startsWith("#")) {
+                            e.preventDefault();
+                            document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }} className="flex items-center px-4 py-3 hover:bg-(--gh-hover) transition-colors cursor-pointer gap-4">
                         <div className='flex items-center gap-2 w-80'>
                             <span className='text-blue-400'>{folderSVG('var(--gh-folder)')}</span>
                             <div className='font-light text-sm hover:text-(--gh-blue) hover:underline transition duration-50'>{item.title}</div>
