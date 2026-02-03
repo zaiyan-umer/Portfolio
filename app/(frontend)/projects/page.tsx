@@ -14,7 +14,7 @@ export default async function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-[#0d1117] text-white">
-      <div className="max-w-6xl mx-auto px-4 py-16">
+      <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl font-bold mb-2">Featured Projects</h1>
         <p className="text-gray-400 mb-8">
           In-depth case studies of projects I've built
@@ -49,13 +49,7 @@ export default async function ProjectsPage() {
                 </div>
               </CardContent>
 
-              <CardFooter className="flex gap-4">
-                <Link
-                  href={`/projects/${project.slug.current}`}
-                  className="text-blue-400 hover:underline"
-                >
-                  Read Case Study →
-                </Link>
+              <CardFooter className="flex gap-4 mx-1">
                 {project.githubUrl && (
                   <Link
                     href={project.githubUrl}

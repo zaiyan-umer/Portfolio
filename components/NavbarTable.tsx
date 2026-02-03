@@ -75,10 +75,10 @@ export const NavbarTable = () => {
                     </Link>
                 ))}
                 {files.map((item, idx) => (
-                    <div key={idx} className="flex items-center px-4 py-3 hover:bg-(--gh-hover) transition-colors cursor-pointer gap-4">
+                    <div key={idx} className="flex items-center px-4 py-3 hover:bg-(--gh-hover) transition-colors cursor-not-allowed gap-4">
                         <div className='flex items-center gap-2 w-80'>
                             <span className='text-blue-400'>{fileSVG('var(--gh-folder)')}</span>
-                            <div className='font-light text-sm hover:text-(--gh-blue) hover:underline transition duration-50'>{item.title}</div>
+                            <div className='font-light text-sm'>{item.title}</div>
                         </div>
                         <div className='text-sm text-gray-500 flex-1 hidden md:block'>{item.description}</div>
                         <div className='text-sm text-gray-500 shrink-0'>{item.time}</div>

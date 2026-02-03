@@ -9,7 +9,7 @@ import { NavbarTable } from './NavbarTable'
 
 const MainBody = () => {
     return (
-        <div className='max-w-[80vw] mx-auto mt-8'>
+        <div className='max-w-[80vw] mx-auto mt-8 relative'>
             <div className="flex items-center gap-4 mb-6">
                 <div><Image src={'/avatar.webp'} alt='Logo' width={28} height={24} className='rounded-md mb-1.5 cursor-pointer' /></div>
                 <div className='font-bold text-xl'>Hi, I&apos;m Zaiyan</div>

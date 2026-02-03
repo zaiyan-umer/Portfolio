@@ -1,3 +1,7 @@
+import { cn } from "@/lib/utils"
+import { motion } from 'motion/react'
+
+
 export const check = (color: string) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
@@ -12,4 +16,58 @@ export const folderSVG = (color: string) => {
 export const fileSVG = (color: string) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-icon lucide-file"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /></svg>)
+}
+
+export const CheckSVG = ({ className }: { className?: string }) => {
+    return (
+        <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={cn("lucide lucide-check-icon lucide-check", className)}
+        >
+            <motion.path d="M4 12 L9 17 L20 6" initial={{ pathLength: 0 }} />
+        </motion.svg>
+    )
+}
+
+export const LoadingSVG = ({ className }: { className?: string }) => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"
+            className={className}
+            style={{ opacity: 0 }}
+        >
+            <linearGradient id="a11">
+                <stop offset="0" stopColor="#FFFFFF" stopOpacity="0"></stop>
+                <stop offset="1" stopColor="#FFFFFF"></stop>
+            </linearGradient>
+
+            <circle
+                fill="none"
+                stroke="url(#a11)"
+                strokeWidth="31"
+                strokeLinecap="round"
+                strokeDasharray="0 44 0 44 0 44 0 44 0 360"
+                cx="100"
+                cy="100"
+                r="70"
+                style={{ transformOrigin: "center" }}
+            >
+                <animateTransform
+                    type="rotate"
+                    attributeName="transform"
+                    calcMode="discrete"
+                    dur="2"
+                    values="360;324;288;252;216;180;144;108;72;36"
+                    repeatCount="indefinite"
+                ></animateTransform>
+            </circle>
+        </svg>
+    )
 }
