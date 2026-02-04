@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const Blog = () => {
+export default function Blog (){
   return (
     <main className="min-h-screen bg-white text-gray-900 dark:bg-[#0d1117] dark:text-white">
       <div className="relative overflow-hidden">
@@ -60,5 +60,3 @@ const Blog = () => {
     </main>
   )
 }
-
-export default Blog
