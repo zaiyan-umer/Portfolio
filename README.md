@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zaiyan Umer · Portfolio
 
-## Getting Started
+A modern, full-stack portfolio website built with **Next.js 16**, **React**, **TypeScript**, **Tailwind CSS**, and **Sanity CMS**. Features a responsive design, dark mode support, dynamic project routing, and a contact form with backend integration.
 
-First, run the development server:
+## 🌐 Live
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[zaiyan-umer.vercel.app](https://zaiyan-umer.vercel.app)
+
+## ✨ Features
+
+- **Server-Side Rendering**: Fast, SEO-optimized pages with Next.js 14 app router
+- **Dynamic Projects**: Project detail pages with slug-based routing and Sanity CMS content
+- **Contact Form**: Fully validated contact form with animations, error states, and Sanity integration
+- **Dark Mode**: System-aware theme switching with Tailwind CSS dark mode
+- **Responsive Design**: Mobile-first UI built with Tailwind CSS and shadcn/ui components
+- **Rich Content**: PortableText rendering for formatted project descriptions
+- **Blog Coming Soon**: Placeholder page for future blog content
+- **Animations**: Smooth interactions with Framer Motion
+
+## 🛠 Tech Stack
+
+- **Frontend**: Next.js 14, React 19, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui
+- **CMS**: Sanity.io (schema: projects, posts, messages, authors, categories)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React, Sanity Icons
+- **Image Optimization**: Next.js Image, Sanity Image API
+- **Validation**: Custom email regex patterns
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── app/
+│   ├── (frontend)/
+│   │   ├── page.tsx           # Home page
+│   │   ├── blog/              # Blog coming soon
+│   │   ├── projects/          # Projects listing & detail pages
+│   │   └── repositories/      # Repositories showcase
+│   ├── api/
+│   │   ├── contact/           # Contact form API endpoint
+│   │   └── github/            # GitHub API integration
+│   ├── studio/                # Sanity Studio
+│   └── layout.tsx             # Root layout with metadata
+├── components/
+│   ├── ContactForm.tsx        # Contact form with validation
+│   ├── MainBody.tsx           # Hero section
+│   ├── Navbar.tsx             # Navigation with theme toggle
+│   ├── TechStack.tsx          # Technology badges
+│   └── ui/                    # shadcn/ui components
+├── sanity/
+│   ├── schemaTypes/           # Document type definitions
+│   ├── lib/                   # Sanity utilities
+│   └── structure.ts           # Studio structure
+├── lib/
+│   ├── sanity.queries.ts      # GROQ queries
+│   └── utils.ts               # Utility functions
+└── public/
+    └── favicon files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📬 Contact Form
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The contact form sends messages to Sanity CMS:
+- Validates name, email, message
+- Stores submissions in `message` document type
+- Features loading & success animations
+- Works with write token authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🔗 Links
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **GitHub**: [github.com/zaiyan-umer](https://github.com/zaiyan-umer)
+- **LinkedIn**: [linkedin.com/in/zaiyan-umer-935525324](https://www.linkedin.com/in/zaiyan-umer-935525324/)
+- **Portfolio**: [zaiyan-umer.vercel.app](https://zaiyan-umer.vercel.app)

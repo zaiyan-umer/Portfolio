@@ -1,6 +1,26 @@
 import { NextResponse } from "next/server";
 import { graphql } from "@octokit/graphql";
 
+interface ContributionDay {
+  date: string;
+  contributionCount: number;
+  color: string;
+}
+
+interface ContributionCalendar {
+  weeks: Array<{
+    contributionDays: ContributionDay[];
+  }>;
+}
+
+interface GitHubResponse {
+  user: {
+    contributionsCollection: {
+      contributionCalendar: ContributionCalendar;
+    };
+  };
+}
+
 export async function GET() {
   try {
     const graphqlWithAuth = graphql.defaults({
@@ -9,7 +29,7 @@ export async function GET() {
       },
     });
 
-    const data = await graphqlWithAuth(`
+    const data = await graphqlWithAuth<GitHubResponse>(`
       query {
         user(login: "${process.env.GITHUB_USERNAME}") {
           contributionsCollection {
