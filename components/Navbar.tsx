@@ -11,7 +11,7 @@ import { motion } from 'motion/react'
 const Navbar = () => {
     return (
         <div>
-            <nav className='h-25 flex items-center w-full md:max-w-[80vw] mx-auto'>
+            <nav className='absolute left-1/2 -translate-x-1/2 top-0 h-25 flex items-center w-full md:max-w-[80vw] z-20'>
                 <div className='flex justify-between items-center w-full px-8 '>
                     <Link href={"/"}>
                         <LogoImage />
