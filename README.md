@@ -19,7 +19,7 @@ A modern, full-stack portfolio website built with **Next.js 16**, **React**, **T
 
 ## 🛠 Tech Stack
 
-- **Frontend**: Next.js 14, React 19, TypeScript
+- **Frontend**: Next.js 16, React 19, TypeScript
 - **Styling**: Tailwind CSS, shadcn/ui
 - **CMS**: Sanity.io (schema: projects, posts, messages, authors, categories)
 - **Animations**: Framer Motion
@@ -66,10 +66,3 @@ The contact form sends messages to Sanity CMS:
 - Stores submissions in `message` document type
 - Features loading & success animations
 - Works with write token authentication
-
-
-## 🔗 Links
-
-- **GitHub**: [github.com/zaiyan-umer](https://github.com/zaiyan-umer)
-- **LinkedIn**: [linkedin.com/in/zaiyan-umer-935525324](https://www.linkedin.com/in/zaiyan-umer-935525324/)
-- **Portfolio**: [zaiyan-umer.vercel.app](https://zaiyan-umer.vercel.app)
