@@ -1,10 +1,10 @@
-# Zaiyan Umer · Portfolio
+# Zaiyan Umer | Portfolio
 
 A modern, full-stack portfolio website built with **Next.js 16**, **React**, **TypeScript**, **Tailwind CSS**, and **Sanity CMS**. Features a responsive design, dark mode support, dynamic project routing, and a contact form with backend integration.
 
 ## 🌐 Live
-
-[zaiyan-umer.vercel.app](https://zaiyan-umer.vercel.app)
+<img width="1847" height="842" alt="image" src="https://github.com/user-attachments/assets/665815e2-f4d7-447f-9b7f-995e487492a9" />
+[zaiyan.vercel.app](https://zaiyan.vercel.app)
 
 ## ✨ Features
 
@@ -26,43 +26,3 @@ A modern, full-stack portfolio website built with **Next.js 16**, **React**, **T
 - **Icons**: Lucide React, Sanity Icons
 - **Image Optimization**: Next.js Image, Sanity Image API
 - **Validation**: Custom email regex patterns
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── app/
-│   ├── (frontend)/
-│   │   ├── page.tsx           # Home page
-│   │   ├── blog/              # Blog coming soon
-│   │   ├── projects/          # Projects listing & detail pages
-│   │   └── repositories/      # Repositories showcase
-│   ├── api/
-│   │   ├── contact/           # Contact form API endpoint
-│   │   └── github/            # GitHub API integration
-│   ├── studio/                # Sanity Studio
-│   └── layout.tsx             # Root layout with metadata
-├── components/
-│   ├── ContactForm.tsx        # Contact form with validation
-│   ├── MainBody.tsx           # Hero section
-│   ├── Navbar.tsx             # Navigation with theme toggle
-│   ├── TechStack.tsx          # Technology badges
-│   └── ui/                    # shadcn/ui components
-├── sanity/
-│   ├── schemaTypes/           # Document type definitions
-│   ├── lib/                   # Sanity utilities
-│   └── structure.ts           # Studio structure
-├── lib/
-│   ├── sanity.queries.ts      # GROQ queries
-│   └── utils.ts               # Utility functions
-└── public/
-    └── favicon files
-```
-
-## 📬 Contact Form
-
-The contact form sends messages to Sanity CMS:
-- Validates name, email, message
-- Stores submissions in `message` document type
-- Features loading & success animations
-- Works with write token authentication
