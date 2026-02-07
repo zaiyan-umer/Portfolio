@@ -53,12 +53,12 @@ export const NavbarTable = () => {
     ]
     
     return (
-        <div className='navbar border border-black/10 w-full rounded-sm dark:border-gray-200/20'>
+        <div className='navbar border border-black/10 w-full rounded-sm dark:border-gray-200/20 shadow-sm'>
             <div className='flex justify-between items-center w-full bg-(--gh-hover) px-4 py-3 border-b border-black/10'>
                 <div className='flex gap-4 items-center'>Zaiyan Umer <span className='ml-4 text-sm text-gray-500 font-light flex gap-1'>Web Developer {check('var(--gh-green)')}</span></div>
                 <div className='text-sm text-gray-500'>{table.length} sections</div>
             </div>
-            <div className='divide-y divide-red '>
+            <div className='divide-y divide-gray '>
                 {table.map((item, idx) => (
                     <Link href={item.href} key={idx} scroll={true} onClick={(e) => {
                         if (item.scroll && item.href.startsWith("#")) {
@@ -89,3 +89,5 @@ export const NavbarTable = () => {
         </div>
     )
 }
+
+
