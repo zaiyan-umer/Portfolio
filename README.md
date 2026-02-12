@@ -4,7 +4,7 @@ A modern, full-stack portfolio website built with **Next.js 16**, **React**, **T
 
 ## 🌐 Live
 <img width="1847" height="842" alt="image" src="https://github.com/user-attachments/assets/665815e2-f4d7-447f-9b7f-995e487492a9" />
-[zaiyan.vercel.app](https://zaiyan.me)
+[zaiyan.me](https://zaiyan.me)
 
 ## ✨ Features
 

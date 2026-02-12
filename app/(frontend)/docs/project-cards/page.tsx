@@ -1,5 +1,5 @@
 import ComponentDocs from "@/components/ComponentDocs";
-import ProjectCardsDemo from "@/ui-components/components/ProjectCards/ProjectsCardsDemo";
+import ProjectCardsDemo from "@/ui-components/ProjectCards/ProjectsCardsDemo";
 
 const repoBaseUrl = process.env.NEXT_PUBLIC_COMPONENTS_BASE_URL;
 

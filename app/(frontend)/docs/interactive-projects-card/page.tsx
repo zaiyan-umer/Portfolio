@@ -1,5 +1,5 @@
 import ComponentDocs from "@/components/ComponentDocs";
-import InteracticeProjectCardsDemo from "@/ui-components/components/InteractiveProjectCards/InteracticeProjectCardsDemo";
+import InteracticeProjectCardsDemo from "@/ui-components/InteractiveProjectCards/InteracticeProjectCardsDemo";
 
 const repoBaseUrl = process.env.NEXT_PUBLIC_COMPONENTS_BASE_URL;
 
