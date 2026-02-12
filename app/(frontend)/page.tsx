@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import ContributionCalendar from "@/components/ContributionCalendar";
 import MainBody from "@/components/MainBody";
-import { useSetTheme } from "@/store/theme.store";
 import { Separator } from "@/components/ui/separator";
 import About from "@/components/About-Readme";
 import { ContactForm } from "@/components/ContactForm";
@@ -11,20 +10,12 @@ import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
-  const setTheme = useSetTheme();
   const [isLoading, setIsLoading] = useState(() => {
     if (typeof window === "undefined") {
       return true;
     }
     return sessionStorage.getItem("hasShownLoader") !== "true";
   });
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme") as "light" | "dark" | null;
-    const theme = saved ?? "light";
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    setTheme(theme);
-  }, [setTheme]);
 
   useEffect(() => {
     const hasShown = sessionStorage.getItem("hasShownLoader") === "true";

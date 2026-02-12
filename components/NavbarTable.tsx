@@ -42,6 +42,16 @@ export const NavbarTable = () => {
             ]
         },
         {
+            title: "Components",
+            description: "Reusable UI components & design system",
+            time: "1 week ago",
+            href: "/docs",
+            scroll: false,
+            images: [
+                "/projects-section.webp"
+            ]
+        },
+        {
             title: "About Me",
             description: "Know more about me",
             time: "1 month ago",
