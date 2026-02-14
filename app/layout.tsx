@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import CanvasCursor from "@/components/FuildCursor";
+import CanvasCursorWrapper from "@/components/CanvasCursorWrapper";
 import ThemeInitializer from "@/components/ThemeInitializer";
 
 const geistSans = Geist({
@@ -51,7 +51,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeInitializer />
-        <CanvasCursor />
+        <CanvasCursorWrapper />
         <Navbar />
         {children}
       </body>
