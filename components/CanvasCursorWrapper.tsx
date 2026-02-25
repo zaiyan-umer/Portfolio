@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CanvasCursor from "@/components/FuildCursor";
+import CursorCrosshair from "./ui/CursorCrosshair";
 
 export default function CanvasCursorWrapper() {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,5 +17,5 @@ export default function CanvasCursorWrapper() {
   }, []);
 
   if (isMobile) return null;
-  return <CanvasCursor />;
+  return <CursorCrosshair />;
 }

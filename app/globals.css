@@ -63,6 +63,7 @@
   --gh-blue: #1483e3;
   --gh-folder: #54AEFF;
   --gh-blue-btn-hover: #1483e3;
+  --warm-white: 38 18% 88%;
 }
 
 .dark {
@@ -180,6 +181,7 @@
   --gh-folder : var(--gh-folder);
   --gh-blue-btn-hover: var(--gh-blue-btn-hover);
   --submit-btn: var(--submit-btn);
+  --warm-white: var(--warm-white);
   
 }
 @layer base {
