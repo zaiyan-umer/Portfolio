@@ -14,7 +14,6 @@ const CursorCrosshair = () => {
     const handleMouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      console.log(e.clientX, e.clientY);
       
       if (!isVisible) setIsVisible(true);
     };

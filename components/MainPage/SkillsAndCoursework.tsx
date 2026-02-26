@@ -18,7 +18,6 @@ export default SkillsAndCoursework
 
 const CourseWork = ({ className }: { className?: string }) => {
     const courses = {
-
         "software": {
             title: "Software Engineering & Programming",
             courses: [
@@ -95,13 +94,9 @@ const CourseWork = ({ className }: { className?: string }) => {
                                     </li>
                                 ))}
                             </ul>
-
                         </div>
-
                     ))}
-
                 </div>
-
             </PanelContent>
         </Panel>
     )
