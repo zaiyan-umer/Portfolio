@@ -1,0 +1,114 @@
+export type TechStack = {
+  /** Unique identifier used to resolve icon files. */
+  key: string
+  /** Display name of the technology. */
+  title: string
+  /** Official website URL. */
+  href: string
+  /** Category tags used for grouping/filtering. */
+  categories: string[]
+  /** If true, use theme-specific icons for dark/light mode. */
+  theme?: boolean
+}
+
+
+export const TECH_STACK: TechStack[] = [
+  {
+    key: "typescript",
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org/",
+    categories: ["Language"],
+  },
+  {
+    key: "js",
+    title: "JavaScript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    categories: ["Language"],
+  },
+  {
+    key: "python",
+    title: "Python",
+    href: "https://www.python.org/",
+    categories: ["Language"],
+  },
+  {
+    key: "php",
+    title: "PHP",
+    href: "https://www.php.net/",
+    categories: ["Language"],
+  },
+  {
+    key: "c",
+    title: "C",
+    href: "https://en.cppreference.com/w/c",
+    categories: ["Language"],
+  },
+  {
+    key: "c++",
+    title: "C++",
+    href: "https://isocpp.org/",
+    categories: ["Language"],
+  },
+  {
+    key: "nodejs",
+    title: "Node.js",
+    href: "https://nodejs.org/",
+    categories: ["Runtime Environment"],
+  },
+  {
+    key: "react",
+    title: "React",
+    href: "https://react.dev/",
+    categories: ["Library", "UI Library"],
+  },
+  {
+    key: "nextjs2",
+    title: "Next.js",
+    href: "https://nextjs.org/",
+    categories: ["Framework"],
+    theme: true,
+  },
+  {
+    key: "tailwindcss",
+    title: "Tailwind CSS",
+    href: "https://tailwindcss.com/",
+    categories: ["Framework"],
+  },
+  {
+    key: "shadcn-ui",
+    title: "shadcn/ui",
+    href: "https://ui.shadcn.com/",
+    categories: ["Library", "Component Library"],
+    theme: true,
+  },
+  {
+    key: "motion",
+    title: "Motion",
+    href: "https://motion.dev/",
+    categories: ["Library", "Animation"],
+  },
+  {
+    key: "git",
+    title: "Git",
+    href: "https://git-scm.com/",
+    categories: ["Version Control"],
+  },
+  {
+    key: "mysql",
+    title: "MySQL",
+    href: "https://www.mysql.com/",
+    categories: ["Database"],
+  },
+  {
+    key: "mongodb",
+    title: "MongoDB",
+    href: "https://www.mongodb.com/",
+    categories: ["Database"],
+  },
+  {
+    key: "figma",
+    title: "Figma",
+    href: "https://www.figma.com/",
+    categories: ["Tools", "Design"],
+  },
+]

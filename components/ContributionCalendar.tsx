@@ -77,48 +77,47 @@ const ContributionCalendar = ({ className, weeks = 52 }: { className?: string, w
 
   return (
     <div className={cn('w-full pb-2', className)}>
-      <div className="mb-2 text-xl text-gray-600 dark:text-gray-300">
+      <div className="mb-2 mx-4 text-xl text-gray-600 dark:text-gray-300">
         {totalContributions} contributions in the last year
       </div>
-      <div className="w-full p-4 inline-flex flex-col gap-2 overflow-x-auto rounded-sm border border-black/10 dark:border-gray-200/20">
+      <div className="w-full p-4 inline-flex flex-col gap-2 overflow-x-auto">
         {/* Total contributions */}
-
-        {/* Month labels */}
-        <div className="flex items-center text-[10px] text-gray-500 ml-8 gap-1">
-          {monthLabels.map((label, idx) => {
-            const show = idx === 0 || label !== monthLabels[idx - 1];
-            return (
-              <span key={idx} className="w-3.5 text-[10px] leading-3">
-                {show ? label : ""}
-              </span>
-            );
-          })}
-        </div>
-
-        {/* Calendar grid */}
-        <div className="flex gap-1">
-          <div className="flex flex-col justify-between text-[10px] text-gray-500 mr-2 h-full">
-            {weekdays.map((dayLabel, idx) => (
-              <span key={idx} className="h-3.5 leading-3">
-                {dayLabel}
-              </span>
-            ))}
+          {/* Month labels */}
+          <div className="flex items-center text-[10px] text-gray-500 ml-8 gap-1">
+            {monthLabels.map((label, idx) => {
+              const show = idx === 0 || label !== monthLabels[idx - 1];
+              return (
+                <span key={idx} className="w-3.5 text-[10px] leading-3">
+                  {show ? label : ""}
+                </span>
+              );
+            })}
           </div>
 
+          {/* Calendar grid */}
           <div className="flex gap-1">
-            {weeksData.map((week, wIdx) => (
-              <div key={wIdx} className="grid grid-rows-7 gap-1">
-                {week.map((day) => (
-                  <div
-                    key={day.key}
-                    className={`h-3.5 w-3.5 rounded-sm ${intensityClass(day.count)} transition-transform duration-150 hover:scale-140`}
-                    title={`${day.key}: ${day.count} contributions`}
-                  />
-                ))}
-              </div>
-            ))}
+            <div className="flex flex-col justify-between text-[10px] text-gray-500 mr-2 h-full">
+              {weekdays.map((dayLabel, idx) => (
+                <span key={idx} className="h-3.5 leading-3">
+                  {dayLabel}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex gap-1">
+              {weeksData.map((week, wIdx) => (
+                <div key={wIdx} className="grid grid-rows-7 gap-1">
+                  {week.map((day) => (
+                    <div
+                      key={day.key}
+                      className={`h-3.5 w-3.5 rounded-sm ${intensityClass(day.count)} transition-transform duration-150 hover:scale-140`}
+                      title={`${day.key}: ${day.count} contributions`}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
       </div>
     </div>
   );

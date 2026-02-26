@@ -1,11 +1,11 @@
 'use client'
 import React, { useRef } from 'react'
 import Image from 'next/image'
-import { Separator } from './ui/separator'
+import { Separator } from '../ui/separator'
 import { VerifiedIcon, Volume2 } from 'lucide-react'
-import { TechStack } from './TechStack'
+import { TechStack } from '../TechStack'
 import { cn } from '@/lib/utils'
-import { NavbarTable } from './NavbarTable'
+import { NavbarTable } from '../Navbar/NavbarTable'
 
 const MainBody = () => {
     return (

@@ -4,69 +4,71 @@ import { useState } from "react";
 
 interface TechStackItem {
     name: string;
-    logo: string;
+    key: string;
     color: string;
     percentage: number;
+    theme?: boolean
 }
 
 export const TechStack = () => {
-    const theme = useTheme();
     const techStack: TechStackItem[] = [
-    {
-        name: "Next.js",
-        logo: theme === "light" ? "./nextjs.svg" : "./nextjs-dark.svg",
-        color: "#0D1117",
-        percentage: 28
-    },
-    {
-        name: "React",
-        logo: "./react.svg",
-        color: "#61DAFB",
-        percentage: 22
-    },
-    {
-        name: "TypeScript",
-        logo: "./typescript.svg",
-        color: "#3178C6",
-        percentage: 20
-    },
-    {
-        name: "JavaScript",
-        logo: "./javascript.svg",
-        color: "#F7DF1E",
-        percentage: 10
-    },
-    {
-        name: "Tailwind CSS",
-        logo: "./tailwindcss.svg",
-        color: "#38BDF8",
-        percentage: 8
-    },
-    {
-        name: "shadcn/ui",
-        logo: theme === "light" ? "./shadcn.svg" : "./shadcn-dark.svg",
-        color: "#FF7F50",
-        percentage: 5
-    },
-    {
-        name: "Node.js",
-        logo: "./nodejs.svg",
-        color: "#339933",
-        percentage: 5
-    },
-    {
-        name: "MongoDB",
-        logo: "./mongodb.svg",
-        color: "#47A248",
-        percentage: 1
-    },
-    {
-        name: "Git",
-        logo: "./git.svg",
-        color: "#F05032",
-        percentage: 1
-    }
-];
+        {
+            name: "Next.js",
+            key: "nextjs2",
+            color: "#0D1117",
+            percentage: 28,
+            theme: true
+        },
+        {
+            name: "React",
+            key: "react",
+            color: "#61DAFB",
+            percentage: 22
+        },
+        {
+            name: "TypeScript",
+            key: "typescript",
+            color: "#3178C6",
+            percentage: 20
+        },
+        {
+            name: "JavaScript",
+            key: "js",
+            color: "#F7DF1E",
+            percentage: 10
+        },
+        {
+            name: "Tailwind CSS",
+            key: "tailwindcss",
+            color: "#38BDF8",
+            percentage: 8
+        },
+        {
+            name: "Motion",
+            key: "motion",
+            color: "#FF7F50",
+            percentage: 5
+        },
+        {
+            name: "Node.js",
+            key: "nodejs",
+            color: "#339933",
+            percentage: 5
+        },
+        {
+            name: "MongoDB",
+            key: "mongodb",
+            color: "#47A248",
+            percentage: 1
+        },
+        {
+            name: "Git",
+            key: "git",
+            color: "#F05032",
+            percentage: 1
+        }
+    ];
+    const globaltheme = useTheme()
 
     const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
@@ -93,13 +95,34 @@ export const TechStack = () => {
                             {hoveredTech === tech.name && (
                                 <div className='absolute h-full bottom-full left-1/2 -translate-x-1/2 mb-2 pl-2 pr-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs rounded-md whitespace-nowrap z-10 animate-in fade-in duration-200'>
                                     <div className='flex items-center gap-2'>
-                                        <Image
-                                            src={tech.logo}
-                                            alt={tech.name}
-                                            width={16}
-                                            height={16}
-                                            className='w-4 h-4'
-                                        />
+                                        {tech.theme ? (
+                                            <>
+                                                <Image
+                                                    src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}-light.svg`}
+                                                    alt={`${tech.name} light icon`}
+                                                    width={16}
+                                                    height={16}
+                                                    className={`${globaltheme === 'light' ? 'block' : 'hidden'}`}
+                                                    unoptimized
+                                                />
+                                                <Image
+                                                    src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}-dark.svg`}
+                                                    alt={`${tech.name} dark icon`}
+                                                    width={16}
+                                                    height={16}
+                                                    className={`${globaltheme === 'dark' ? 'block' : 'hidden'}`}
+                                                    unoptimized
+                                                />
+                                            </>
+                                        ) : (
+                                            <Image
+                                                src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}.svg`}
+                                                alt={`${tech.name} icon`}
+                                                width={16}
+                                                height={16}
+                                                unoptimized
+                                            />
+                                        )}
                                         <span className='font-medium'>{tech.name}</span>
                                         <span className='font-semibold'>{tech.percentage}%</span>
                                     </div>
@@ -126,16 +149,34 @@ export const TechStack = () => {
                                 className='w-2 h-2 rounded-full shrink-0'
                                 style={{ backgroundColor: tech.color }}
                             />
-
-                            {/* Logo */}
-                            <Image
-                                src={tech.logo}
-                                alt={tech.name}
-                                width={16}
-                                height={16}
-                                className='w-4 h-4 shrink-0'
-                            />
-
+                            {tech.theme ? (
+                                <>
+                                    <Image
+                                        src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}-light.svg`}
+                                        alt={`${tech.name} light icon`}
+                                        width={16}
+                                        height={16}
+                                        className={`${globaltheme === 'light' ? 'block' : 'hidden'}`}
+                                        unoptimized
+                                    />
+                                    <Image
+                                        src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}-dark.svg`}
+                                        alt={`${tech.name} dark icon`}
+                                        width={16}
+                                        height={16}
+                                        className={`${globaltheme === 'dark' ? 'block' : 'hidden'}`}
+                                        unoptimized
+                                    />
+                                </>
+                            ) : (
+                                <Image
+                                    src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}.svg`}
+                                    alt={`${tech.name} icon`}
+                                    width={16}
+                                    height={16}
+                                    unoptimized
+                                />
+                            )}
                             {/* Name and Percentage */}
                             <div className='flex items-center gap-1 min-w-0'>
                                 <span className='text-xs font-medium truncate'>{tech.name}</span>

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { check, fileSVG, folderSVG } from "./svgs"
+import { check, fileSVG, folderSVG } from "../svgs"
 import { ImagesBadge } from "@/components/ui/images-badge"
 type NavLink = {
     title: string;

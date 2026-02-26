@@ -1,6 +1,6 @@
 import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 import { motion } from 'motion/react'
 
 const Footer = () => {
