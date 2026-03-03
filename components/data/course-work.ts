@@ -1,10 +1,19 @@
 export const certifications = [
     {
+        title: "API Design in Node.js, v5",
+        issuedBy: "Frontend Masters",
+        img: "/frontend-masters.webp",
+        issuedAt: "Mar 2026",
+        credentialId: "778d1beae6-xdzGqkzYQB",
+        link: "https://static.frontendmasters.com/ud/c/778d1beae6/xdzGqkzYQB/api-design-nodejs-v5.pdf",
+        tags: ["Node.js", "Express.js", "Typescript", "REST APIs"]
+    },
+    {
         title: "Next.js Fundamentals, v4",
         issuedBy: "Frontend Masters",
         img: "/frontend-masters.webp",
         issuedAt: "Feb 2026",
-        credentialId: "778d1beae6/bCWFkdHrBA",
+        credentialId: "778d1beae6-bCWFkdHrBA",
         link: "https://static.frontendmasters.com/ud/c/778d1beae6/bCWFkdHrBA/next-js-v4.pdf",
         tags: ["Next.js", "Typescript", "Edge Computing"]
     },
