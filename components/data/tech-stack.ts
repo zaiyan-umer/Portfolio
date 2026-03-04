@@ -13,6 +13,7 @@ export type TechStack = {
 
 
 export const TECH_STACK: TechStack[] = [
+  // Languages
   {
     key: "typescript",
     title: "TypeScript",
@@ -49,12 +50,14 @@ export const TECH_STACK: TechStack[] = [
     href: "https://isocpp.org/",
     categories: ["Language"],
   },
+  // Runtime Environment
   {
     key: "nodejs",
     title: "Node.js",
     href: "https://nodejs.org/",
     categories: ["Runtime Environment"],
   },
+  // Frontend Frameworks & Libraries
   {
     key: "react",
     title: "React",
@@ -87,11 +90,34 @@ export const TECH_STACK: TechStack[] = [
     href: "https://motion.dev/",
     categories: ["Library", "Animation"],
   },
+  // Backend Frameworks
   {
-    key: "git",
-    title: "Git",
-    href: "https://git-scm.com/",
-    categories: ["Version Control"],
+    key: "express",
+    title: "Express",
+    href: "https://expressjs.com/",
+    categories: ["Framework", "Backend"],
+    theme: true
+  },
+  // Validation & ORM
+  {
+    key: "zod",
+    title: "Zod",
+    href: "https://zod.dev/",
+    categories: ["Library", "Validation"],
+  },
+  {
+    key: "drizzle",
+    title: "Drizzle ORM",
+    href: "https://orm.drizzle.team/",
+    categories: ["Library", "ORM"],
+    theme: true
+  },
+  // Databases
+  {
+    key: "postgres",
+    title: "PostgreSQL",
+    href: "https://www.postgresql.org/",
+    categories: ["Database"],
   },
   {
     key: "mysql",
@@ -104,6 +130,38 @@ export const TECH_STACK: TechStack[] = [
     title: "MongoDB",
     href: "https://www.mongodb.com/",
     categories: ["Database"],
+  },
+  {
+    key: "neon",
+    title: "Neon",
+    href: "https://neon.tech/",
+    categories: ["Database", "Serverless"],
+  },
+  {
+    key: "redis",
+    title: "Redis",
+    href: "https://redis.io/",
+    categories: ["Database", "Cache"],
+  },
+  // Tools
+  {
+    key: "git",
+    title: "Git",
+    href: "https://git-scm.com/",
+    categories: ["Version Control"],
+  },
+  {
+    key: "postman",
+    title: "Postman",
+    href: "https://www.postman.com/",
+    categories: ["Tools", "API Testing"],
+  },
+  {
+    key: "vercel",
+    title: "Vercel",
+    href: "https://vercel.com/",
+    categories: ["Deployment", "Hosting"],
+    theme: true,
   },
   {
     key: "figma",
