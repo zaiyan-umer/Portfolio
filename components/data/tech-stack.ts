@@ -105,16 +105,16 @@ export const TECH_STACK: TechStack[] = [
     href: "https://zod.dev/",
     categories: ["Library", "Validation"],
   },
-  {
-    key: "drizzle",
-    title: "Drizzle ORM",
-    href: "https://orm.drizzle.team/",
-    categories: ["Library", "ORM"],
-    theme: true
-  },
+  // {
+  //   key: "drizzle",
+  //   title: "Drizzle ORM",
+  //   href: "https://orm.drizzle.team/",
+  //   categories: ["Library", "ORM"],
+  //   theme: true
+  // },
   // Databases
   {
-    key: "postgres",
+    key: "postgresql",
     title: "PostgreSQL",
     href: "https://www.postgresql.org/",
     categories: ["Database"],
@@ -137,12 +137,12 @@ export const TECH_STACK: TechStack[] = [
     href: "https://neon.tech/",
     categories: ["Database", "Serverless"],
   },
-  {
-    key: "redis",
-    title: "Redis",
-    href: "https://redis.io/",
-    categories: ["Database", "Cache"],
-  },
+  // {
+  //   key: "redis",
+  //   title: "Redis",
+  //   href: "https://redis.io/",
+  //   categories: ["Database", "Cache"],
+  // },
   // Tools
   {
     key: "git",
