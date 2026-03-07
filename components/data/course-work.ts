@@ -9,6 +9,15 @@ export const certifications = [
         tags: ["Node.js", "Express.js", "Typescript", "REST APIs"]
     },
     {
+        title: "Intro to Realtime",
+        issuedBy: "Frontend Masters",
+        img: "/frontend-masters.webp",
+        issuedAt: "Mar 2026",
+        credentialId: "778d1beae6-umKMZyYJaD",
+        link: "https://static.frontendmasters.com/ud/c/778d1beae6/umKMZyYJaD/realtime.pdf",
+        tags: ["Socket.io", "Web Sockets", "HTTP"]
+    },
+    {
         title: "Next.js Fundamentals, v4",
         issuedBy: "Frontend Masters",
         img: "/frontend-masters.webp",
