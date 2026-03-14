@@ -124,7 +124,6 @@ export function ContactForm({ className }: { className?: string }) {
                                 }
                             }}
                             className={errors.name ? 'border-red-500 focus-visible:ring-red-500' : ''}
-
                         />
                     </Field>
                     <Field>
