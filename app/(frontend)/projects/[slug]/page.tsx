@@ -2,7 +2,7 @@ import ExternalLinkHoverEffect from '@/components/ExternalLinkHoverEffect'
 import { Badge } from '@/components/ui/badge'
 import { projectQuery } from '@/lib/sanity.queries'
 import { client } from '@/sanity/lib/client'
-import { urlFor } from '@/sanity/lib/image'
+import { urlFor } from '@/sanity/lib/imgUrl'
 import { ArrowLeft, Github } from 'lucide-react'
 import { PortableText } from 'next-sanity'
 import Image from 'next/image'
@@ -65,10 +65,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 {project.thumbnail && (
                     <div className="mb-8 rounded-lg overflow-hidden">
                         <Image
-                            src={urlFor(project.thumbnail).width(800).height(400).url()}
+                            src={urlFor(project.thumbnail).width(1800).height(800).quality(70).auto('format').url()}
                             alt={project.title}
-                            width={800}
-                            height={400}
+                            width={1800}
+                            height={800}
                             className="w-full h-auto"
                         />
                     </div>
@@ -124,9 +124,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                                 types: {
                                     image: ({ value }: any) => (
                                         <Image
-                                            src={urlFor(value).width(800).url()}
+                                            src={urlFor(value).width(2200).quality(90).auto('format').url()}
                                             alt={value.alt || 'Project image'}
-                                            width={800}
+                                            width={2200}
                                             height={600}
                                             className="rounded-lg my-6"
                                         />

@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { featuredProjectsQuery } from '@/lib/sanity.queries'
 import { client } from '@/sanity/lib/client'
-import { urlFor } from '@/sanity/lib/image'
+import { urlFor } from '@/sanity/lib/imgUrl'
 import { ArrowRight, ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
               <CardHeader>
                 {project.thumbnail && (
                   <Image
-                    src={urlFor(project.thumbnail).width(600).height(300).url()}
+                    src={urlFor(project.thumbnail).width(600).height(300).quality(90).url()}
                     alt={project.title}
                     width={600}
                     height={300}
