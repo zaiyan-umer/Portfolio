@@ -3,6 +3,6 @@ import { client } from './client' // your Sanity client
 
 const builder = imageUrlBuilder(client)
 
-export function urlFor(source) {
+export function urlFor(source: Parameters<typeof builder.image>[0]) {
   return builder.image(source)
 }
