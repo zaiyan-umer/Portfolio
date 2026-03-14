@@ -197,3 +197,26 @@
     margin-top: 0 !important;
     margin-bottom: 0 !important;
 }
+
+/* ── Contribution calendar scroll container ───────────────────────────────── */
+/* Thin, subtle scrollbar so it doesn't fight the UI on desktop browsers.      */
+.calendar-scroll {
+  scrollbar-width: thin;                        /* Firefox */
+  scrollbar-color: rgba(156,163,175,0.5) transparent; /* Firefox thumb / track */
+}
+.calendar-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.calendar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.calendar-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(156,163,175,0.45);
+  border-radius: 9999px;
+}
+.dark .calendar-scroll {
+  scrollbar-color: rgba(75,85,99,0.6) transparent;
+}
+.dark .calendar-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(75,85,99,0.5);
+}

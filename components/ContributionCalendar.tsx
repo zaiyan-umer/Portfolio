@@ -16,16 +16,14 @@ const intensityClass = (count: number) => {
 
 const formatDate = (d: Date) => d.toISOString().slice(0, 10);
 
-const ContributionCalendar = ({ className, weeks = 52 }: { className?: string, weeks?: number }) => {
+const ContributionCalendar = ({ className, weeks = 52 }: { className?: string; weeks?: number }) => {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
 
   useEffect(() => {
-    fetch("/api/github")
+    fetch('/api/github')
       .then((res) => res.json())
       .then((calendar) => {
-        // Flatten weeks -> days
         const days = calendar.weeks.flatMap((w: any) => w.contributionDays);
-        // Map to { date, count }
         const mapped: ContributionDay[] = days.map((d: any) => ({
           date: d.date,
           count: d.contributionCount,
@@ -37,91 +35,116 @@ const ContributionCalendar = ({ className, weeks = 52 }: { className?: string, w
 
   const totalContributions = useMemo(
     () => contributions.reduce((sum, day) => sum + day.count, 0),
-    [contributions]
+    [contributions],
   );
-
 
   const totalDays = weeks * 7;
   const today = new Date();
-  const contributionMap = React.useMemo(() => {
+
+  const contributionMap = useMemo(() => {
     const map = new Map<string, number>();
-    contributions.forEach(({ date, count }) => {
-      map.set(date, count);
-    });
+    contributions.forEach(({ date, count }) => map.set(date, count));
     return map;
   }, [contributions]);
 
-  // Build days from oldest to newest
+  // Build days array oldest → newest
   const days = Array.from({ length: totalDays }, (_, idx) => {
     const day = new Date(today);
     day.setDate(today.getDate() - (totalDays - 1 - idx));
     const key = formatDate(day);
-    const count = contributionMap.get(key) ?? 0;
-    return { key, count };
+    return { key, count: contributionMap.get(key) ?? 0 };
   });
 
-  // Chunk into weeks (columns)
+  // Chunk into week columns
   const weeksData: typeof days[] = [];
-  for (let i = 0; i < days.length; i += 7) {
-    weeksData.push(days.slice(i, i + 7));
-  }
+  for (let i = 0; i < days.length; i += 7) weeksData.push(days.slice(i, i + 7));
 
-  // Month labels (only show when month changes)
-  const monthLabels = weeksData.map((week) => {
-    const firstDay = week[0];
-    const d = new Date(firstDay.key);
-    return d.toLocaleString("default", { month: "short" });
-  });
+  // Month label per week column — only show on first week of a new month
+  const monthLabels = weeksData.map((week) =>
+    new Date(week[0].key).toLocaleString('default', { month: 'short' }),
+  );
 
-  const weekdays = ["", "Mon", "", "Wed", "", "Fri", ""];
+  // 7 row labels — empty strings on even rows keep spacing uniform
+  const weekdays = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
   return (
     <div className={cn('w-full pb-2', className)}>
+      {/* Summary */}
       <div className="mb-2 mx-4 text-xl text-gray-600 dark:text-gray-300">
         {totalContributions} contributions in the last year
       </div>
-      <div className="w-full p-4 inline-flex flex-col gap-2 overflow-x-auto">
-        {/* Total contributions */}
-          {/* Month labels */}
-          <div className="flex items-center text-[10px] text-gray-500 ml-8 gap-1">
-            {monthLabels.map((label, idx) => {
-              const show = idx === 0 || label !== monthLabels[idx - 1];
-              return (
-                <span key={idx} className="w-3.5 text-[10px] leading-3">
-                  {show ? label : ""}
-                </span>
-              );
-            })}
+
+      <div className="calendar-scroll relative overflow-x-auto pr-4 ml-4 md:ml-10 pt-2 pb-3">
+        {/* Right-edge gradient fade — hints at horizontal scrollability */}
+        <div
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 z-10
+                     bg-linear-to-l from-background to-transparent"
+        />
+
+        <div className="flex min-w-max">
+
+          <div
+            className="sticky left-0 z-20 flex flex-col gap-1 pr-2
+                       bg-background"
+          >
+            {/* Spacer = height of the month-labels row (h-4 = 16 px) + gap-1 (4 px) */}
+            <div className="h-4" />
+            {weekdays.map((label, i) => (
+              <span
+                key={i}
+                className="h-3 w-6 sm:h-3.5 flex items-center
+                           text-[10px] text-gray-500 leading-none"
+              >
+                {label}
+              </span>
+            ))}
           </div>
 
-          {/* Calendar grid */}
-          <div className="flex gap-1">
-            <div className="flex flex-col justify-between text-[10px] text-gray-500 mr-2 h-full">
-              {weekdays.map((dayLabel, idx) => (
-                <span key={idx} className="h-3.5 leading-3">
-                  {dayLabel}
-                </span>
-              ))}
+          <div className="flex flex-col gap-1">
+
+            {/*
+             * Month labels row.
+             * Each label cell is the same width as a heatmap week column
+             * (w-3 / sm:w-3.5) with the same gap-1 → perfect column sync.
+             */}
+            <div className="flex gap-1 h-4 items-end">
+              {weeksData.map((_, wIdx) => {
+                const label = monthLabels[wIdx];
+                const show = wIdx === 0 || label !== monthLabels[wIdx - 1];
+                return (
+                  <div key={wIdx} className="w-3 sm:w-3.5 shrink-0">
+                    <span className="block text-[10px] text-gray-500 leading-none">
+                      {show ? label : ''}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
+            {/* Heatmap grid — flex row of week columns */}
             <div className="flex gap-1">
               {weeksData.map((week, wIdx) => (
-                <div key={wIdx} className="grid grid-rows-7 gap-1">
+                <div key={wIdx} className="flex flex-col gap-1">
                   {week.map((day) => (
                     <div
                       key={day.key}
-                      className={`h-3.5 w-3.5 rounded-sm ${intensityClass(day.count)} transition-transform duration-150 hover:scale-140`}
-                      title={`${day.key}: ${day.count} contributions`}
+                      className={cn(
+                        'h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-sm shrink-0',
+                        intensityClass(day.count),
+                        'transition-transform duration-150 hover:scale-125 cursor-default',
+                      )}
+                      title={`${day.key}: ${day.count} contribution${day.count !== 1 ? 's' : ''}`}
                     />
                   ))}
                 </div>
               ))}
             </div>
+
           </div>
+        </div>
       </div>
     </div>
   );
-
 };
 
 export default ContributionCalendar;
