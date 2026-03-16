@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import CanvasCursorWrapper from "@/components/CanvasCursorWrapper";
 import ThemeInitializer from "@/components/ThemeInitializer";
 import { TooltipProvider } from "@/components/ui/tooltip"
+import TransitionWrapper from "@/components/TransitionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,12 +52,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeInitializer />
-        <CanvasCursorWrapper />
-        <Navbar />
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        <TransitionWrapper>
+          <ThemeInitializer />
+          <CanvasCursorWrapper />
+          <Navbar />
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
+        </TransitionWrapper>
       </body>
     </html>
   );

@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./ui/panel"
 import Image from "next/image";
+import Link from "next/link";
 import { certifications, courses } from "./data/course-work";
 import BorderCard from "./ui/BorderCard";
-import Link from "next/link";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "./ui/panel";
 
 
 export const CourseWork = ({ className }: { className?: string }) => {
