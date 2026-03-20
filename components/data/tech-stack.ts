@@ -98,7 +98,14 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Framework", "Backend"],
     theme: true
   },
-  // Validation & ORM
+  {
+    key: "socket",
+    title: "Socket.io",
+    href: "https://socket.io/",
+    categories: ["Library", "Realtime"],
+    theme: true
+  },
+    // Validation & ORM
   {
     key: "zod",
     title: "Zod",
