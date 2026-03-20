@@ -14,7 +14,7 @@ export function TechStack() {
     return (
         <Panel id="stack">
             <PanelHeader>
-                <PanelTitle>Additional Tech</PanelTitle>
+                <PanelTitle>Tech I work with</PanelTitle>
             </PanelHeader>
 
             <PanelContent>
