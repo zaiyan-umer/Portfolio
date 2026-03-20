@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zaiyan Umer · Portfolio",
+    title: "Zaiyan Umer | Portfolio",
     description:
       "Full-stack developer building modern web experiences. Projects, case studies, and contact.",
   },
