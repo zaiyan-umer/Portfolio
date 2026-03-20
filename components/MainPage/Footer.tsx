@@ -13,7 +13,7 @@ const Footer = () => {
                 <div className="absolute inset-x-0 top-0 h-px blur-sm bg-linear-to-r from-transparent via-blue-300 dark:via-blue-600 to-transparent opacity-50" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="max-w-7xl mx-auto py-12">
                 <BrandLinks />
 
                 <Separator className='dark:bg-gray-300/20 mb-6' />
@@ -37,10 +37,10 @@ export default Footer;
 
 const BrandLinks = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
 
             {/* Brand & About */}
-            <div className="col-span-1 md:col-span-2">
+            <div className="col-span-1 md:col-span-3">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
                     Zaiyan Umer
                 </h3>
