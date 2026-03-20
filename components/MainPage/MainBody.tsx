@@ -1,40 +1,10 @@
 'use client'
-import React, { useRef } from 'react'
-import Image from 'next/image'
-import { Separator } from '../ui/separator'
 import { VerifiedIcon, Volume2 } from 'lucide-react'
-import { TechStack } from '../TechStack'
-import { cn } from '@/lib/utils'
+import Image from 'next/image'
+import { useRef } from 'react'
 import { NavbarTable } from '../Navbar/NavbarTable'
 
 const MainBody = () => {
-    return (
-        <div className='max-w-[80vw] mx-auto mt-32 relative'>
-            <div className="flex items-center gap-4 mb-6">
-                <div><Image src={'/avatar.webp'} alt='Logo' width={28} height={24} className='rounded-md mb-1.5 cursor-pointer' /></div>
-                <div className='font-bold text-xl'>Hi, I&apos;m Zaiyan</div>
-                <div className='text-xs text-gray-600 dark:text-gray-400 border border-black/10 dark:border-gray-200/20 rounded-xl px-3 py-1'>Public</div>
-            </div>
-
-            <div className="relative">
-                <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
-                <div className="absolute inset-x-0 top-0 h-px blur-sm bg-linear-to-r from-transparent via-blue-300 dark:via-blue-600 to-transparent opacity-50" />
-            </div>
-            
-            <div className='grid grid-cols-1 lg:grid-cols-4 mt-12'>
-                <div className="col-span-3">
-                    <NavbarTable />
-                </div>
-                <div className="col-span-1 mt-8 md:mt-0">
-                    <Separator className='block md:hidden' />
-                    <Profile className='mt-4 lg:mt-0' />
-                </div>
-            </div>
-        </div>
-    )
-}
-
-const Profile = ({ className }: { className: string }) => {
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const handlePlayAudio = () => {
@@ -45,25 +15,24 @@ const Profile = ({ className }: { className: string }) => {
     };
 
     return (
-        <div className={cn('grid grid-cols-1', className)}>
-            <div className='flex flex-col gap-4 px-5'>
-                <div className='font-semibold text-lg underline decoration-1 decoration-gray-300/70 dark:decoration-gray-300/20 underline-offset-3'>About</div>
-                <div className="name flex gap-1 items-center">
-                    <span className='font-semibold text-md'>zaiyan umer</span>
+        <div className='relative'>
+            <div className="flex items-center gap-4 mb-6 justify-center sm:justify-start px-2 py-3">
+                <div className='hidden sm:block'><Image src={'/avatar.webp'} alt='Logo' width={28} height={24} className='rounded-md mb-1.5 cursor-pointer' /></div>
+                <div className='font-bold text-xl flex gap-1 items-center'>
+                    <span className='font-semibold text-md'>Hi, I&apos;m Zaiyan Umer</span>
                     <span><VerifiedIcon size={24} fill='var(--gh-blue)' color='var(--gh-hover)' /></span>
                     <span className='cursor-pointer hover:opacity-70 transition-opacity duration-100' onClick={handlePlayAudio}><Volume2 size={20} /> </span>
                 </div>
                 <audio ref={audioRef} src="/name-pronounciation.mp3" />
+                <div className='text-xs text-gray-600 dark:text-gray-400 border border-black/10 dark:border-gray-200/20 rounded-xl px-3 py-1 hidden sm:block'>Public</div>
             </div>
-            <div className='px-5 py-4 text-sm text-gray-500 dark:text-gray-400'>
-                <p className='leading-relaxed'>
-                    Full Stack Developer building modern web experiences. Meta Certified. Passionate about scalable apps & clean code.
-                </p>
+
+            <div className="relative">
+                <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-px blur-sm bg-linear-to-r from-transparent via-blue-300 dark:via-blue-600 to-transparent opacity-50" />
             </div>
-            <div className='px-5 py-4'>
-                <Separator />
-                <TechStack />
-            </div>
+
+            <NavbarTable />
         </div>
     )
 }

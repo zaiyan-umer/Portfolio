@@ -74,7 +74,7 @@ const ContributionCalendar = ({ className, weeks = 52 }: { className?: string; w
         {totalContributions} contributions in the last year
       </div>
 
-      <div className="calendar-scroll relative overflow-x-auto pr-4 ml-4 md:ml-10 pt-2 pb-3">
+      <div className="calendar-scroll relative overflow-x-auto pr-4 pt-2 pb-3">
         {/* Right-edge gradient fade — hints at horizontal scrollability */}
         <div
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 z-10

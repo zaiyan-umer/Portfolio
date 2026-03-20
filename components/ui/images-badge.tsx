@@ -57,7 +57,7 @@ export function ImagesBadge({
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={cn(
-        "inline-flex cursor-pointer items-center gap-2 perspective-[1000px] transform-3d",
+        "inline-flex cursor-pointer items-center justify-between gap-2 perspective-[1000px] transform-3d",
         className,
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -75,10 +75,10 @@ export function ImagesBadge({
           }}
         >
           {/* Folder Back */}
-          <div className="absolute inset-0 rounded-[4px] bg-gradient-to-b from-amber-400 to-amber-500 shadow-sm dark:from-amber-500 dark:to-amber-600">
+          <div className="absolute inset-0 rounded-lg bg-linear-to-b from-amber-400 to-amber-500 shadow-sm dark:from-amber-500 dark:to-amber-600">
             {/* Folder Tab */}
             <div
-              className="absolute left-0.5 rounded-t-[2px] bg-gradient-to-b from-amber-300 to-amber-400 dark:from-amber-400 dark:to-amber-500"
+              className="absolute left-0.5 rounded-t-[2px] bg-linear-to-b from-amber-300 to-amber-400 dark:from-amber-400 dark:to-amber-500"
               style={{
                 top: -tabHeight * 0.65,
                 width: tabWidth,
@@ -176,7 +176,7 @@ export function ImagesBadge({
 
         <div className='font-light text-sm hover:text-(--gh-blue) hover:underline transition duration-50'>{text}</div>
       </div>
-      <div className='text-sm text-gray-500 flex-1 hidden md:block'>{description}</div>
+      <div className='text-sm text-gray-500 flex-1 hidden lg:block'>{description}</div>
       <div className='text-sm text-gray-500 shrink-0'>{time}</div>
     </Component>
   );

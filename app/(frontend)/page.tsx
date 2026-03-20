@@ -8,16 +8,16 @@ import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <main key="content">
-      <MainBody />
-      <div className="mt-8 max-w-[80vw] mx-auto">
+    <main className="content relative max-w-[90vw] md:max-w-[65vw] mx-auto mt-24">
+      <MainBody/>
+      <div className="mt-8 mx-auto">
         <Separator className='dark:bg-gray-300/20' />
 
-        <ContributionCalendar className='mt-8 mb-16 lg:mx-20' />
+        <ContributionCalendar className='mt-8 mb-16' />
 
         <Separator className='dark:bg-gray-300/20' />
 
-        <SkillsAndCoursework className='my-20 lg:mx-20' />
+        <SkillsAndCoursework className='my-20' />
 
         <Separator className='dark:bg-gray-300/20' />
 

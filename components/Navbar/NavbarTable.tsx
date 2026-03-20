@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { check, fileSVG, folderSVG } from "../svgs"
-import { ImagesBadge } from "@/components/ui/images-badge"
+import { ImagesBadge } from "@/components/ui/images-badge";
+import Link from "next/link";
+import { check, fileSVG } from "../svgs";
 type NavLink = {
     title: string;
     description: string;
@@ -82,20 +82,20 @@ export const NavbarTable = () => {
     return (
         <div className='navbar border border-black/10 w-full rounded-sm dark:border-gray-200/20 shadow-sm'>
             <div className='flex justify-between items-center w-full bg-(--gh-hover)/80 px-4 py-3 border-b border-black/10'>
-                <div className='flex gap-4 items-center'>Zaiyan Umer <span className='ml-4 text-sm text-gray-500 font-light flex gap-1'>Web Developer {check('var(--gh-green)')}</span></div>
-                <div className='text-sm text-gray-500'>{table.length} sections</div>
+                <div className='flex gap-4 items-center'>Zaiyan Umer <span className='ml-4 text-sm text-gray-500 font-light gap-1 hidden sm:block'><span className="flex">Web Developer {check('var(--gh-green)')}</span></span></div>
+                <div className='text-sm text-gray-500'>{table.length + files.length} sections</div>
             </div>
             <div className='divide-y divide-gray'>
                 {table.map((item, idx) => (
                     <NavTableLink item={item} key={idx} />
                 ))}
                 {files.map((item, idx) => (
-                    <div key={idx} className="flex items-center px-4 py-3 transition-colors cursor-not-allowed gap-4">
+                    <div key={idx} className="flex items-center justify-between px-4 py-3 transition-colors cursor-not-allowed gap-4">
                         <div className='flex items-center gap-2 w-80'>
                             <span className='text-blue-400'>{fileSVG('var(--gh-folder)')}</span>
                             <div className='font-light text-sm'>{item.title}</div>
                         </div>
-                        <div className='text-sm text-gray-500 flex-1 hidden md:block'>{item.description}</div>
+                        <div className='text-sm text-gray-500 flex-1 hidden lg:block'>{item.description}</div>
                         <div className='text-sm text-gray-500 shrink-0'>{item.time}</div>
                     </div>
                 ))}
@@ -126,26 +126,5 @@ const NavTableLink = ({ item, key }: { item: NavLink, key: number }) => {
         </div>
     )
 }
-
-
-
-// const NavTableLinkBkp = ({ item, key, className }: { item: NavLink, key: number, className?: string }) => {
-//     return (
-//         <Link href={item.href} key={key} scroll={true} onClick={(e) => {
-//             if (item.scroll && item.href.startsWith("#")) {
-//                 e.preventDefault();
-//                 document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
-//             }
-//         }}
-//             className={cn("flex items-center px-4 py-3 transition-colors cursor-pointer gap-4 hover:bg-(--gh-hover)/50", className)}>
-//             <div className='flex items-center gap-2 w-80'>
-//                 <span className='text-blue-400'>{folderSVG('var(--gh-folder)')}</span>
-//                 <div className='font-light text-sm hover:text-(--gh-blue) hover:underline transition duration-50'>{item.title}</div>
-//             </div>
-//             <div className='text-sm text-gray-500 flex-1 hidden md:block'>{item.description}</div>
-//             <div className='text-sm text-gray-500 shrink-0'>{item.time}</div>
-//         </Link>
-//     )
-// }
 
 
