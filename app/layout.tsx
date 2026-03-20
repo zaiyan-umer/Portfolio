@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Zaiyan Umer · Portfolio",
+    default: "Zaiyan Umer | Portfolio",
     template: "%s · Zaiyan Umer",
   },
   description:
