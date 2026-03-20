@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "Full-stack developer building modern web experiences. Projects, case studies, and contact.",
   metadataBase: new URL("https://zaiyan-umer.vercel.app"),
   openGraph: {
-    title: "Zaiyan Umer · Portfolio",
+    title: "Zaiyan Umer | Portfolio",
     description:
       "Full-stack developer building modern web experiences. Projects, case studies, and contact.",
     url: "https://zaiyan-umer.vercel.app",
