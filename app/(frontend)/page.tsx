@@ -13,7 +13,7 @@ export default function Home() {
       <div className="mt-8 mx-auto">
         <Separator className='dark:bg-gray-300/20' />
 
-        <ContributionCalendar className='mt-8 mb-16' />
+        <ContributionCalendar className='mt-8 mb-16 mx-auto md:w-fit' />
 
         <Separator className='dark:bg-gray-300/20' />
 

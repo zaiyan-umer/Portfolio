@@ -75,11 +75,6 @@ const ContributionCalendar = ({ className, weeks = 52 }: { className?: string; w
       </div>
 
       <div className="calendar-scroll relative overflow-x-auto pr-4 pt-2 pb-3">
-        {/* Right-edge gradient fade — hints at horizontal scrollability */}
-        <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 z-10
-                     bg-linear-to-l from-background to-transparent"
-        />
 
         <div className="flex min-w-max">
 
