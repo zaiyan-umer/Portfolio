@@ -33,12 +33,6 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Language"],
   },
   {
-    key: "php",
-    title: "PHP",
-    href: "https://www.php.net/",
-    categories: ["Language"],
-  },
-  {
     key: "c",
     title: "C",
     href: "https://en.cppreference.com/w/c",
