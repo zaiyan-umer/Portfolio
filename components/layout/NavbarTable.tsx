@@ -1,6 +1,6 @@
 import { ImagesBadge } from "@/components/ui/images-badge";
 import Link from "next/link";
-import { check, fileSVG } from "../svgs";
+import { check, fileSVG } from "@/components/ui/svgs";
 type NavLink = {
     title: string;
     description: string;
@@ -56,6 +56,13 @@ export const NavbarTable = () => {
             description: "Know more about me",
             time: "1 month ago",
             href: "#about",
+            scroll: true
+        },
+        {
+            title: "Experience",
+            description: "Where I've worked",
+            time: "1 month ago",
+            href: "#experience",
             scroll: true
         },
         {
