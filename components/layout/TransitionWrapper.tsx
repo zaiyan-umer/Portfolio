@@ -1,5 +1,5 @@
 'use client'
-import LoadingScreen from "@/components/MainPage/LoadingScreen";
+import LoadingScreen from "@/components/sections/LoadingScreen";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 

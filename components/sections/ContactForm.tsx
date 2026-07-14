@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { motion, useAnimate } from 'motion/react'
 import { FormEvent, useState } from 'react'
 import { ArrowButton, showLoadingAnimation, showSuccessAnimation } from "./BtnAnimations"
-import { CheckSVG, LoadingSVG } from "./svgs"
+import { CheckSVG, LoadingSVG } from "@/components/ui/svgs"
 
 export function ContactForm({ className }: { className?: string }) {
     const [scope, animate] = useAnimate()

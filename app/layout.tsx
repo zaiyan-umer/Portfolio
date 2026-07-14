@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import CanvasCursorWrapper from "@/components/CanvasCursorWrapper";
-import ThemeInitializer from "@/components/ThemeInitializer";
+import Navbar from "@/components/layout/Navbar";
+import CanvasCursorWrapper from "@/components/layout/CanvasCursorWrapper";
+import ThemeInitializer from "@/components/layout/ThemeInitializer";
 import { TooltipProvider } from "@/components/ui/tooltip"
-import TransitionWrapper from "@/components/TransitionWrapper";
+import TransitionWrapper from "@/components/layout/TransitionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

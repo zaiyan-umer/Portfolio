@@ -1,4 +1,4 @@
-import ExternalLinkHoverEffect from '@/components/ExternalLinkHoverEffect'
+import ExternalLinkHoverEffect from '@/components/projects/ExternalLinkHoverEffect'
 import { Badge } from '@/components/ui/badge'
 import { projectQuery } from '@/lib/sanity.queries'
 import { client } from '@/sanity/lib/client'

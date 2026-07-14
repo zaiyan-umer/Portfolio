@@ -2,7 +2,7 @@
 import { VerifiedIcon, Volume2 } from 'lucide-react'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { NavbarTable } from '../Navbar/NavbarTable'
+import { NavbarTable } from '@/components/layout/NavbarTable'
 
 const MainBody = () => {
     const audioRef = useRef<HTMLAudioElement>(null);

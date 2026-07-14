@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { Signature } from '@/components/svgs'
+import { Signature } from '@/components/ui/svgs'
 import { useTheme } from '@/store/theme.store'
 
 const floatTransition = {
