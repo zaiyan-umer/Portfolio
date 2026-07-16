@@ -46,30 +46,3 @@ export const projectQuery = groq`
     publishedAt
   }
 `
-
-// Get all blog posts
-export const postsQuery = groq`
-  *[_type == "post"] | order(publishedAt desc) {
-    _id,
-    title,
-    slug,
-    excerpt,
-    coverImage,
-    tags,
-    publishedAt
-  }
-`
-
-// Get single blog post
-export const postQuery = groq`
-  *[_type == "post" && slug.current == $slug][0] {
-    _id,
-    title,
-    slug,
-    excerpt,
-    coverImage,
-    content,
-    tags,
-    publishedAt
-  }
-`
