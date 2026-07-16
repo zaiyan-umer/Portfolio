@@ -22,12 +22,9 @@ const componentGroups = [
 
 const page = () => {
   return (
-    <main className="max-w-[80vw] mx-auto pt-28 pb-20">
+    <main className="layout-standard pt-28 pb-20">
       <header className="mb-10">
-        <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-gray-500 dark:text-gray-400 border border-black/10 dark:border-gray-200/20 rounded-full px-3 py-1">
-          Docs
-        </div>
-        <h1 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
+        <h1 className="mt-8 text-3xl md:text-4xl font-semibold tracking-tight">
           Components Documentation
         </h1>
         <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl">

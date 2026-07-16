@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge'
 import { projectQuery } from '@/lib/sanity.queries'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/imgUrl'
-import { ArrowLeft, Github } from 'lucide-react'
+import { Github } from 'lucide-react'
 import { PortableText } from 'next-sanity'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -37,13 +37,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0d1117] dark:text-white flex items-center justify-center">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-                    <Link
-                        href="/projects"
-                        className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 flex items-center justify-center gap-2"
-                    >
-                        <ArrowLeft size={20} />
-                        Back to Projects
-                    </Link>
                 </div>
             </div>
         )
@@ -51,16 +44,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
     return (
         <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0d1117] dark:text-white mt-18">
-            <div className="max-w-4xl mx-auto px-4 py-8">
-                {/* Back Button */}
-                <Link
-                    href="/projects"
-                    className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center gap-2 mb-8"
-                >
-                    <ArrowLeft size={20} />
-                    Back to Projects
-                </Link>
-
+            <div className="layout-narrow px-4 py-8">
                 {/* Thumbnail */}
                 {project.thumbnail && (
                     <div className="mb-8 rounded-lg overflow-hidden">

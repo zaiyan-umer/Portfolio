@@ -32,14 +32,11 @@ export const NavbarTable = () => {
             ]
         },
         {
-            title: "Blog",
-            description: "Tech articles & insights",
+            title: "Education",
+            description: "Certifications & coursework",
             time: "2 weeks ago",
-            href: "/blog",
-            scroll: false,
-            images: [
-                "/blog.webp"
-            ]
+            href: "/education",
+            scroll: false
         },
         {
             title: "Components",

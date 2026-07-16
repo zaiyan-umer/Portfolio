@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, ChevronLeft, Copy, ExternalLink } from "lucide-react";
+import { Check, Copy, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const CopyButton = ({ text, className }: { text: string; className?: string }) => {
@@ -70,14 +70,8 @@ const ComponentDocs = ({
     tags = [],
 }: ComponentDocsProps) => {
     return (
-        <main className="max-w-[80vw] mx-auto pt-24 pb-20">
+        <main className="layout-standard pt-24 pb-20">
             <div className="mb-8">
-                <Link
-                    href="/docs"
-                    className="flex items-center gap-px w-fit text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                    <ChevronLeft size={18}/> Back to docs
-                </Link>
                 <h1 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
                     {title}
                 </h1>

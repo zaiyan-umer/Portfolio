@@ -184,6 +184,33 @@
   --warm-white: var(--warm-white);
   
 }
+
+@utility layout-standard {
+  width: 100%;
+  max-width: 90vw;
+  margin-inline: auto;
+  @variant md {
+    max-width: 65vw;
+  }
+}
+
+@utility layout-narrow {
+  width: 100%;
+  max-width: 65vw;
+  margin-inline: auto;
+  @variant md {
+    max-width: 45vw;
+  }
+}
+
+@utility layout-wide {
+  width: 100%;
+  max-width: 85vw;
+  margin-inline: auto;
+  @variant md {
+    max-width: 65vw;
+  }
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
