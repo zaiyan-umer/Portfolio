@@ -19,34 +19,37 @@ export type ExperienceItem = {
   link?: string
 }
 
-// PLACEHOLDER — replace with your real work history, most recent first.
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    company: "PLACEHOLDER Company",
-    role: "PLACEHOLDER Role",
-    startDate: "PLACEHOLDER",
+    company: "KNYSYS",
+    role: "Software Engineer Intern",
+    startDate: "Jul 2026",
     endDate: "Present",
-    location: "PLACEHOLDER",
-    summary:
-      "PLACEHOLDER — describe your responsibilities, key projects, and impact in this role.",
-    bullets: [
-      "PLACEHOLDER — a key achievement or responsibility",
-      "PLACEHOLDER — another key achievement or responsibility",
-    ],
-    tags: ["Next.js", "TypeScript"],
+    location: "On-site",
+    summary: "Working on cool stuff.",
+    tags: ["Docker", "Agentic AI Development"],
   },
-    {
-    company: "PLACEHOLDER Company",
-    role: "PLACEHOLDER Role",
-    startDate: "PLACEHOLDER",
-    endDate: "Present",
-    location: "PLACEHOLDER",
+  {
+    company: "Developers' Day - ACM NUCES",
+    role: "Deputy - Hackathon",
+    startDate: "Jan 2026",
+    endDate: "Apr 2026",
+    location: "Karachi, Sindh, Pakistan",
     summary:
-      "PLACEHOLDER — describe your responsibilities, key projects, and impact in this role.",
+      "Helped organize a 100+ student hackathon with 30+ registered teams, handling logistics and coordination.",
+    tags: [],
+  },
+  {
+    company: "National University of Computer and Emerging Sciences",
+    role: "Teaching Assistant",
+    startDate: "Sep 2025",
+    endDate: "Dec 2025",
+    summary: "CS 1002: Programming Fundamentals",
     bullets: [
-      "PLACEHOLDER — a key achievement or responsibility",
-      "PLACEHOLDER — another key achievement or responsibility",
+      "Managed a class of 50+ students.",
+      "Graded course material.",
+      "Conducted quizzes and assignments.",
     ],
-    tags: ["Next.js", "TypeScript"],
+    tags: [],
   },
 ]

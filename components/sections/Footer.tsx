@@ -73,8 +73,8 @@ const BrandLinks = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                            Blog
+                        <Link href="/education" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                            Education
                         </Link>
                     </li>
                     <li>

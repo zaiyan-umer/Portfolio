@@ -12,7 +12,7 @@ export const ABOUT_ME: AboutMeContent = {
     "PLACEHOLDER — Add a second paragraph with more context: your background, interests, or what drives you as a developer.",
   ],
   highlights: [
-    { label: "Based in", value: "PLACEHOLDER" },
+    { label: "Based in", value: "Karachi, Pakistan" },
     { label: "Focus", value: "PLACEHOLDER" },
     { label: "Open to", value: "PLACEHOLDER" },
   ],

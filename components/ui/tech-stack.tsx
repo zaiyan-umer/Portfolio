@@ -6,18 +6,18 @@ import {
 } from "@/components/ui/tooltip"
 
 import { TECH_STACK } from "@/components/data/tech-stack"
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel"
 import { useTheme } from "@/store/theme.store"
+import { cn } from "@/lib/utils"
 
-export function TechStack() {
+export function TechStack({ className }: { className?: string }) {
     const globaltheme = useTheme();
     return (
-        <Panel id="stack">
-            <PanelHeader>
-                <PanelTitle>Tech I work with</PanelTitle>
-            </PanelHeader>
+        <section id="stack" className={cn("py-6", className)}>
+            <div className="px-4">
+                <h2 className="text-3xl font-semibold tracking-tight mt-6 ml-2 mb-0">Tech I work with</h2>
+            </div>
 
-            <PanelContent>
+            <div className="px-4 py-4">
                 <ul className="flex flex-wrap gap-2 select-none">
                     {TECH_STACK.map((tech) => {
                         return (
@@ -69,7 +69,7 @@ export function TechStack() {
                         )
                     })}
                 </ul>
-            </PanelContent>
-        </Panel>
+            </div>
+        </section>
     )
 }
