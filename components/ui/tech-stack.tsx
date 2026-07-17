@@ -35,16 +35,16 @@ export function TechStack({ className }: { className?: string }) {
                                                     <Image
                                                         src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}-light.svg`}
                                                         alt={`${tech.title} light icon`}
-                                                        width={32}
-                                                        height={32}
+                                                        width={38}
+                                                        height={38}
                                                         className={`${globaltheme === 'light'? 'block' : 'hidden'}`}
                                                         unoptimized
                                                     />
                                                     <Image
                                                         src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}-dark.svg`}
                                                         alt={`${tech.title} dark icon`}
-                                                        width={32}
-                                                        height={32}
+                                                        width={38}
+                                                        height={38}
                                                         className={`${globaltheme === 'dark'? 'block' : 'hidden'}`}
                                                         unoptimized
                                                     />
@@ -53,8 +53,8 @@ export function TechStack({ className }: { className?: string }) {
                                                 <Image
                                                     src={`https://ik.imagekit.io/mllj8vxiah/${tech.key}.svg`}
                                                     alt={`${tech.title} icon`}
-                                                    width={32}
-                                                    height={32}
+                                                    width={38}
+                                                    height={38}
                                                     unoptimized
                                                 />
                                             )}

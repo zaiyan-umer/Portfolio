@@ -1,21 +1,12 @@
 export type ExperienceItem = {
-  /** Company or organization name. */
   company: string
-  /** Job title / role. */
   role: string
-  /** e.g. "Jan 2025" */
   startDate: string
-  /** e.g. "Jun 2025", or "Present" for a current role. */
   endDate: string
-  /** e.g. "Austin, USA" or "Remote". */
   location?: string
-  /** Short description of responsibilities and impact. */
   summary: string
-  /** Expandable list of key achievements/responsibilities. */
   bullets?: string[]
-  /** Tech/skills tags shown as pills. */
   tags: string[]
-  /** Optional link to the company or role. */
   link?: string
 }
 
@@ -25,7 +16,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     role: "Software Engineer Intern",
     startDate: "Jul 2026",
     endDate: "Present",
-    location: "On-site",
+    location: "On-site - Karachi, Pakistan",
     summary: "Working on cool stuff.",
     tags: ["Docker", "Agentic AI Development"],
   },
@@ -34,7 +25,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     role: "Deputy - Hackathon",
     startDate: "Jan 2026",
     endDate: "Apr 2026",
-    location: "Karachi, Sindh, Pakistan",
+    location: "On-site - Karachi, Pakistan",
     summary:
       "Helped organize a 100+ student hackathon with 30+ registered teams, handling logistics and coordination.",
     tags: [],

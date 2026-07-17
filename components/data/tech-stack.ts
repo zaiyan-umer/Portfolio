@@ -72,13 +72,6 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Framework"],
   },
   {
-    key: "shadcn-ui",
-    title: "shadcn/ui",
-    href: "https://ui.shadcn.com/",
-    categories: ["Library", "Component Library"],
-    theme: true,
-  },
-  {
     key: "motion",
     title: "Motion",
     href: "https://motion.dev/",
@@ -93,37 +86,23 @@ export const TECH_STACK: TechStack[] = [
     theme: true
   },
   {
+    key: "django",
+    title: "Django",
+    href: "https://www.djangoproject.com/",
+    categories: ["Framework", "Backend"],
+  },
+  {
     key: "socket",
     title: "Socket.io",
     href: "https://socket.io/",
     categories: ["Library", "Realtime"],
     theme: true
   },
-    // Validation & ORM
-  {
-    key: "zod",
-    title: "Zod",
-    href: "https://zod.dev/",
-    categories: ["Library", "Validation"],
-  },
-  // {
-  //   key: "drizzle",
-  //   title: "Drizzle ORM",
-  //   href: "https://orm.drizzle.team/",
-  //   categories: ["Library", "ORM"],
-  //   theme: true
-  // },
   // Databases
   {
     key: "postgresql",
     title: "PostgreSQL",
     href: "https://www.postgresql.org/",
-    categories: ["Database"],
-  },
-  {
-    key: "mysql",
-    title: "MySQL",
-    href: "https://www.mysql.com/",
     categories: ["Database"],
   },
   {
@@ -133,17 +112,11 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Database"],
   },
   {
-    key: "neon",
-    title: "Neon",
-    href: "https://neon.tech/",
-    categories: ["Database", "Serverless"],
+    key: "redis",
+    title: "Redis",
+    href: "https://redis.io/",
+    categories: ["Database", "Cache"],
   },
-  // {
-  //   key: "redis",
-  //   title: "Redis",
-  //   href: "https://redis.io/",
-  //   categories: ["Database", "Cache"],
-  // },
   // Tools
   {
     key: "git",
@@ -152,10 +125,10 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Version Control"],
   },
   {
-    key: "postman",
-    title: "Postman",
-    href: "https://www.postman.com/",
-    categories: ["Tools", "API Testing"],
+    key: "docker",
+    title: "Docker",
+    href: "https://www.docker.com/",
+    categories: ["Tools", "Containerization"],
   },
   {
     key: "vercel",
@@ -163,11 +136,5 @@ export const TECH_STACK: TechStack[] = [
     href: "https://vercel.com/",
     categories: ["Deployment", "Hosting"],
     theme: true,
-  },
-  {
-    key: "figma",
-    title: "Figma",
-    href: "https://www.figma.com/",
-    categories: ["Tools", "Design"],
   },
 ]

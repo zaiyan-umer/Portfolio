@@ -2,6 +2,49 @@ import { cn } from "@/lib/utils"
 import { ABOUT_ME } from "@/components/data/about-me"
 import { UserCircle } from "lucide-react"
 
+const highlightText = (text: string) => {
+    const highlights = [
+        { term: "CS student", className: "text-(--gh-blue) font-semibold" },
+        { term: "problem solving", className: "text-(--gh-blue) font-semibold" },
+        { term: "CPU, motherboard, RAM, SSD, and a screen and keyboard", className: "font-mono bg-black/5 dark:bg-white/5 text-gray-850 dark:text-gray-200 px-1.5 py-0.5 rounded-md text-xs border border-black/5 dark:border-white/5" },
+        { term: "scalable and secure", className: "text-emerald-600 dark:text-emerald-400 font-semibold" },
+        { term: "speed you can feel", className: "text-amber-600 dark:text-amber-400 font-semibold" },
+        { term: "backend", className: "font-semibold text-gray-900 dark:text-gray-100" },
+        { term: "frontend", className: "font-semibold text-gray-900 dark:text-gray-100" },
+    ];
+
+    let elements: React.ReactNode[] = [text];
+
+    for (const h of highlights) {
+        const nextElements: React.ReactNode[] = [];
+        for (const el of elements) {
+            if (typeof el !== "string") {
+                nextElements.push(el);
+                continue;
+            }
+
+            const parts = el.split(h.term);
+            if (parts.length === 1) {
+                nextElements.push(el);
+            } else {
+                parts.forEach((part, index) => {
+                    nextElements.push(part);
+                    if (index < parts.length - 1) {
+                        nextElements.push(
+                            <span key={`${h.term}-${index}`} className={h.className}>
+                                {h.term}
+                            </span>
+                        );
+                    }
+                });
+            }
+        }
+        elements = nextElements;
+    }
+
+    return elements;
+};
+
 const AboutMe = ({ className }: { className?: string }) => {
     return (
         <section id="about" className={cn("py-8", className)}>
@@ -24,7 +67,7 @@ const AboutMe = ({ className }: { className?: string }) => {
                                     : "text-[15px] text-gray-600 dark:text-gray-400"
                             )}
                         >
-                            {paragraph}
+                            {highlightText(paragraph)}
                         </p>
                     ))}
                 </div>

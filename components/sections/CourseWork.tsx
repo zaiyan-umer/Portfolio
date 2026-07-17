@@ -10,7 +10,7 @@ export const CourseWork = ({ className }: { className?: string }) => {
     return (
         <Panel id="course-work" className={cn(className)}>
             <PanelHeader>
-                <PanelTitle>Course Work</PanelTitle>
+                <PanelTitle>BSCS - National University of Computer and Emerging Sciences (FAST)</PanelTitle>
             </PanelHeader>
 
             <PanelContent>

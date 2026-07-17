@@ -45,7 +45,7 @@ const Experience = ({ className }: { className?: string }) => {
                                                 </div>
                                                 <div>
                                                     <h3 className="font-semibold text-lg leading-snug">{item.role}</h3>
-                                                    <p className="text-sm font-medium text-(--gh-blue)">{item.company}</p>
+                                                    <p className="text-sm font-medium text-(--gh-blue) hover:text-white">{item.company}</p>
                                                 </div>
                                             </div>
                                             <span className="shrink-0 whitespace-nowrap rounded-full border border-black/10 px-3 py-1 text-xs text-gray-600 dark:border-gray-200/20 dark:text-gray-400">
@@ -80,44 +80,48 @@ const Experience = ({ className }: { className?: string }) => {
                                             </div>
                                         ) : null}
 
-                                        <div className="flex flex-wrap gap-2 pt-1">
-                                            {item.tags.map((tag) => (
-                                                <span
-                                                    key={tag}
-                                                    className="rounded-full border bg-muted/20 px-2.5 py-1 text-[11px] text-muted-foreground/80 transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
+                                        {item.tags?.length ? (
+                                            <div className="flex flex-wrap gap-2 pt-1">
+                                                {item.tags.map((tag) => (
+                                                    <span
+                                                        key={tag}
+                                                        className="rounded-full border bg-muted/20 px-2.5 py-1 text-[11px] text-muted-foreground/80 transition-all duration-300 hover:bg-muted/50 hover:text-foreground"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        ) : null}
 
-                                        <div className="flex items-center justify-between pt-1">
-                                            {item.bullets?.length ? (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => toggle(idx)}
-                                                    className="inline-flex cursor-pointer items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-                                                >
-                                                    <ChevronDown
-                                                        size={12}
-                                                        className={cn("transition-transform duration-150", isOpen && "rotate-180")}
-                                                    />
-                                                    {isOpen ? "Show less" : "Show more"}
-                                                </button>
-                                            ) : <span />}
+                                        {(item.bullets?.length || item.link) ? (
+                                            <div className="flex items-center justify-between pt-1">
+                                                {item.bullets?.length ? (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => toggle(idx)}
+                                                        className="inline-flex cursor-pointer items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                                                    >
+                                                        <ChevronDown
+                                                            size={12}
+                                                            className={cn("transition-transform duration-150", isOpen && "rotate-180")}
+                                                        />
+                                                        {isOpen ? "Show less" : "Show more"}
+                                                    </button>
+                                                ) : <span />}
 
-                                            {item.link ? (
-                                                <Link
-                                                    href={item.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="group inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-2 transition-colors hover:text-foreground"
-                                                >
-                                                    Learn more
-                                                    <ExternalLink size={12} className="transition-transform duration-150 group-hover:translate-x-px group-hover:-translate-y-px" />
-                                                </Link>
-                                            ) : null}
-                                        </div>
+                                                {item.link ? (
+                                                    <Link
+                                                        href={item.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="group inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-2 transition-colors hover:text-foreground"
+                                                    >
+                                                        Learn more
+                                                        <ExternalLink size={12} className="transition-transform duration-150 group-hover:translate-x-px group-hover:-translate-y-px" />
+                                                    </Link>
+                                                ) : null}
+                                            </div>
+                                        ) : null}
                                     </BorderCard>
                                 )
                             })}

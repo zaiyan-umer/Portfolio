@@ -5,15 +5,14 @@ export type AboutMeContent = {
   highlights?: { label: string; value: string }[]
 }
 
-// PLACEHOLDER — replace with your real bio and quick facts.
 export const ABOUT_ME: AboutMeContent = {
   paragraphs: [
-    "PLACEHOLDER — Write a short introduction here: who you are, what you build, and what you're currently focused on.",
-    "PLACEHOLDER — Add a second paragraph with more context: your background, interests, or what drives you as a developer.",
+    "A CS student with a genuine interest in problem solving, most of which involves a CPU, motherboard, RAM, SSD, and a screen and keyboard (a computer).",
+    "I build websites and web apps for fun. On the backend I care about things actually being scalable and secure, not just working on my machine. On the frontend I care about speed you can feel, not just a clean look in a screenshot.",
   ],
   highlights: [
     { label: "Based in", value: "Karachi, Pakistan" },
-    { label: "Focus", value: "PLACEHOLDER" },
-    { label: "Open to", value: "PLACEHOLDER" },
+    { label: "Focus", value: "Full-Stack Web Dev" },
+    { label: "Open to", value: "Projects" },
   ],
 }
