@@ -39,7 +39,7 @@ Required (see `.env`, gitignored):
 - `sanity/lib/live.ts` — exports `sanityFetch`/`SanityLive` (next-sanity Live Content API) for pages that need auto-updating content.
 - `app/api/contact/route.ts` builds its own write-enabled client using `SANITY_API_WRITE_TOKEN`; this token must never be used client-side.
 - All GROQ queries live centrally in `lib/sanity.queries.ts` (projects, featured projects, single project) — add new queries here rather than inlining GROQ in components/pages.
-- Schema types (`project`, `message`) live in `sanity/schemaTypes/` and are aggregated in `sanity/schemaTypes/index.ts`.
+- Schema types (`project`, `message`, `aboutMe`, `experience`, `certification`, `courseCategory`, `techStack`) live in `sanity/schemaTypes/` and are aggregated in `sanity/schemaTypes/index.ts`.
 
 ### Theming
 - `store/theme.store.ts` is a small zustand store (`light`/`dark`) that toggles the `dark` class on `document.documentElement` and persists to `localStorage`.
@@ -48,12 +48,12 @@ Required (see `.env`, gitignored):
 
 ### Component folder structure
 `components/` is organized by role rather than as a flat list — when adding a component, place it by what it does, not where it happens to be used from:
-- `components/layout/` — global chrome mounted once in `app/layout.tsx`: `Navbar`, `NavbarTable`, `CanvasCursorWrapper` (custom canvas-based cursor effect), `ThemeInitializer`, `TransitionWrapper` (first-visit loading screen via `sessionStorage` flag `hasShownLoader`, then fades in content).
+- `components/layout/` — global chrome components. `ThemeInitializer` is mounted globally in `app/layout.tsx`, while `Navbar`, `NavbarTable`, `CanvasCursorWrapper` (custom canvas-based cursor effect), and `TransitionWrapper` (first-visit loading screen via `sessionStorage`) are mounted in `app/(frontend)/layout.tsx` to keep the Sanity Studio isolated.
 - `components/sections/` — composed blocks rendered by the homepage (`app/(frontend)/page.tsx`) and the `/education` page: `MainBody`, `AboutMe`, `Experience`, `ContactForm` (+ its `BtnAnimations` helper), `Footer`, `LoadingScreen` (homepage), and `ContributionCalendar`, `CourseWork` (also exports `Certifications`) (`/education`). Each `id="..."` on a section's root is an anchor target that `NavbarTable`'s scroll-linked nav entries jump to on the homepage (e.g. `#about`, `#experience`, `#contact`) — keep one section owning one anchor id.
 
 - `components/projects/` — components specific to the `/projects` feature (currently just `ExternalLinkHoverEffect.tsx`).
 - `components/ui/` — shadcn/ui primitives (`new-york` style, see `components.json`) plus custom primitives (`border-beam`, `BorderCard`, `CursorCrosshair`, `panel`, `svgs` icon set, etc.) and the `tech-stack.tsx` display component. Not all generated shadcn primitives are used yet (e.g. `avatar`, `sheet`, `tabs`) — that's expected shadcn scaffolding, not dead code to chase.
-- `components/data/` — hardcoded, typed content consumed by the matching section/ui component (`about-me.ts`, `experience.ts`, `course-work.ts`, `tech-stack.ts`). Keep content data separate from the component that renders it, following this pattern for any new static content.
+- `data/` (formerly `components/data/`) — hardcoded, typed content previously consumed by matching UI components. This content is now managed dynamically via Sanity CMS. The local files are preserved in the root `data/` folder (git-ignored) solely for use by the `seed-sanity.ts` seeding script.
 
 Path aliases: `@/components`, `@/components/ui`, `@/lib`, `@/hooks` all resolve under the repo root via the `@/*` tsconfig path; prefer `@/components/...` imports over relative paths when crossing between these folders.
 
