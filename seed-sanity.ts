@@ -1,10 +1,10 @@
 import { createClient } from '@sanity/client'
 
 
-import { ABOUT_ME } from './components/data/about-me'
-import { EXPERIENCE } from './components/data/experience'
-import { certifications, courses } from './components/data/course-work'
-import { TECH_STACK } from './components/data/tech-stack'
+import { ABOUT_ME } from './data/about-me'
+import { EXPERIENCE } from './data/experience'
+import { certifications, courses } from './data/course-work'
+import { TECH_STACK } from './data/tech-stack'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
