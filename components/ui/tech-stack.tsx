@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image"
 import {
     Tooltip,
@@ -5,11 +7,21 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-import { TECH_STACK } from "@/components/data/tech-stack"
+
 import { useTheme } from "@/store/theme.store"
 import { cn } from "@/lib/utils"
 
-export function TechStack({ className }: { className?: string }) {
+type TechStackData = {
+    key: string;
+    title: string;
+    href: string;
+    categories?: string[];
+    theme?: boolean;
+}
+
+export function TechStack({ data, className }: { data: TechStackData[], className?: string }) {
+    if (!data?.length) return null;
+
     const globaltheme = useTheme();
     return (
         <section id="stack" className={cn("py-6", className)}>
@@ -19,7 +31,7 @@ export function TechStack({ className }: { className?: string }) {
 
             <div className="px-4 py-4">
                 <ul className="flex flex-wrap gap-2 select-none">
-                    {TECH_STACK.map((tech) => {
+                    {data.map((tech) => {
                         return (
                             <li key={tech.key} className="flex">
                                 <Tooltip>

@@ -4,13 +4,26 @@ import { useState } from "react"
 import Link from "next/link"
 import { Briefcase, ChevronDown, ExternalLink, MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { EXPERIENCE } from "@/components/data/experience"
 import BorderCard from "@/components/ui/BorderCard"
 import { TracingBeam } from "@/components/ui/tracing-beam"
 
 const isCurrentRole = (endDate: string) => endDate.trim().toLowerCase() === "present"
 
-const Experience = ({ className }: { className?: string }) => {
+type ExperienceData = {
+    company: string;
+    role: string;
+    startDate: string;
+    endDate: string;
+    location?: string;
+    summary: string;
+    bullets?: string[];
+    tags?: string[];
+    link?: string;
+}
+
+const Experience = ({ data, className }: { data: ExperienceData[], className?: string }) => {
+    if (!data?.length) return null;
+
     const [expanded, setExpanded] = useState<Record<number, boolean>>({ 0: true })
 
     const toggle = (idx: number) => setExpanded((s) => ({ ...s, [idx]: !s[idx] }))
@@ -25,7 +38,7 @@ const Experience = ({ className }: { className?: string }) => {
                 <div className="pl-4 md:pl-20">
                     <TracingBeam className="py-6">
                         <div className="flex flex-col gap-6 max-w-2xl">
-                            {EXPERIENCE.map((item, idx) => {
+                            {data.map((item, idx) => {
                                 const isActive = isCurrentRole(item.endDate)
                                 const isOpen = !!expanded[idx]
 

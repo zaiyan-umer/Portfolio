@@ -1,7 +1,12 @@
 import ContributionCalendar from "@/components/sections/ContributionCalendar";
 import { CourseWork, Certifications } from "@/components/sections/CourseWork";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getCertificationsQuery, getCoursesQuery } from "@/lib/sanity.queries";
 
-export default function EducationPage() {
+export default async function EducationPage() {
+  const { data: coursesData } = await sanityFetch({ query: getCoursesQuery });
+  const { data: certificationsData } = await sanityFetch({ query: getCertificationsQuery });
+
   return (
     <main className="layout-standard pt-32 pb-20">
       <header className="mb-10">
@@ -15,8 +20,8 @@ export default function EducationPage() {
 
       <div className="space-y-12">
         <ContributionCalendar className="mx-auto md:w-fit" />
-        <CourseWork />
-        <Certifications className="mt-8" />
+        <CourseWork data={coursesData} />
+        <Certifications data={certificationsData} className="mt-8" />
       </div>
     </main>
   );

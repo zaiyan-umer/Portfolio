@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { ABOUT_ME } from "@/components/data/about-me"
+
 import { UserCircle } from "lucide-react"
 
 const highlightText = (text: string) => {
@@ -45,7 +45,14 @@ const highlightText = (text: string) => {
     return elements;
 };
 
-const AboutMe = ({ className }: { className?: string }) => {
+type AboutMeData = {
+    paragraphs: string[];
+    highlights?: { label: string; value: string }[];
+}
+
+const AboutMe = ({ data, className }: { data: AboutMeData | null, className?: string }) => {
+    if (!data) return null;
+
     return (
         <section id="about" className={cn("py-8", className)}>
             <div className="px-4 flex items-center gap-3">
@@ -57,7 +64,7 @@ const AboutMe = ({ className }: { className?: string }) => {
 
             <div className="px-4 mt-8">
                 <div className="flex flex-col gap-5 max-w-3xl">
-                    {ABOUT_ME.paragraphs.map((paragraph, idx) => (
+                    {data.paragraphs.map((paragraph, idx) => (
                         <p 
                             key={idx}
                             className={cn(
@@ -72,9 +79,9 @@ const AboutMe = ({ className }: { className?: string }) => {
                     ))}
                 </div>
 
-                {ABOUT_ME.highlights?.length ? (
+                {data.highlights?.length ? (
                     <div className="flex flex-wrap gap-3 mt-10">
-                        {ABOUT_ME.highlights.map((highlight) => (
+                        {data.highlights.map((highlight) => (
                             <div
                                 key={highlight.label}
                                 className="group flex items-center gap-2 rounded-full border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 py-1.5 pl-1.5 pr-4 transition-all hover:bg-black/10 dark:hover:bg-white/10"
