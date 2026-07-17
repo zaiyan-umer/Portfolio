@@ -38,16 +38,7 @@ export const NavbarTable = () => {
             href: "/education",
             scroll: false
         },
-        {
-            title: "Components",
-            description: "Reusable UI components & design system",
-            time: "1 week ago",
-            href: "/docs",
-            scroll: false,
-            images: [
-                "/projects-section.webp"
-            ]
-        },
+
         {
             title: "About Me",
             description: "Know more about me",
