@@ -1,7 +1,5 @@
 import { cn } from "@/lib/utils"
 
-import { UserCircle } from "lucide-react"
-
 const highlightText = (text: string) => {
     const highlights = [
         { term: "CS student", className: "text-(--gh-blue) font-semibold" },
@@ -56,9 +54,6 @@ const AboutMe = ({ data, className }: { data: AboutMeData | null, className?: st
     return (
         <section id="about" className={cn("py-8", className)}>
             <div className="px-4 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:bg-blue-400/10 dark:text-blue-400">
-                    <UserCircle size={24} />
-                </div>
                 <h2 className="text-3xl font-semibold tracking-tight">About Me</h2>
             </div>
 
