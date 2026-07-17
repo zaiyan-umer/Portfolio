@@ -100,10 +100,10 @@ export const NavbarTable = () => {
     )
 }
 
-const NavTableLink = ({ item, key }: { item: NavLink, key: number }) => {
+const NavTableLink = ({ item }: { item: NavLink }) => {
     return (
         <div className="divide-y divide-gray">
-            <Link href={item.href} key={key} scroll={true} onClick={(e) => {
+            <Link href={item.href} scroll={true} onClick={(e) => {
                 if (item.scroll && item.href.startsWith("#")) {
                     e.preventDefault();
                     document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
