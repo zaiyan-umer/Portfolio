@@ -1,5 +1,41 @@
 export const certifications = [
     {
+        title: "Backend System Design",
+        issuedBy: "Master.dev",
+        img: "/frontend-masters.webp",
+        issuedAt: "Jul 2026",
+        credentialId: "778d1beae6-SWWJwVkvWp",
+        link: "https://static.frontendmasters.com/ud/c/778d1beae6/SWWJwVkvWp/backend-system-design-frontendmasters.pdf",
+        tags: ["High-Level Design", "System Architecture"]
+    },
+    {
+        title: "Complete Intro to Containers, v2",
+        issuedBy: "Master.dev",
+        img: "/frontend-masters.webp",
+        issuedAt: "Jun 2026",
+        credentialId: "778d1beae6-fNQjbTScAe",
+        link: "https://static.frontendmasters.com/ud/c/778d1beae6/fNQjbTScAe/complete-intro-containers-v2-frontendmasters.pdf",
+        tags: ["Docker", "Containerization"]
+    },
+    {
+        title: "Full Stack Fundamentals, v3",
+        issuedBy: "Master.dev",
+        img: "/frontend-masters.webp",
+        issuedAt: "Jun 2026",
+        credentialId: "778d1beae6-pApqiQbIWA",
+        link: "https://static.frontendmasters.com/ud/c/778d1beae6/pApqiQbIWA/fullstack-v3-frontendmasters.pdf",
+        tags: ["Linux", "Shell Scripting"]
+    },
+    {
+        title: "AI Agents Fundamentals",
+        issuedBy: "Master.dev",
+        img: "/frontend-masters.webp",
+        issuedAt: "Jun 2026",
+        credentialId: "778d1beae6-eUtsWVhiLT",
+        link: "https://static.frontendmasters.com/ud/c/778d1beae6/eUtsWVhiLT/ai-agents-v2-frontendmasters.pdf",
+        tags: ["AI", "LLMs", "Agents"]
+    },
+    {
         title: "API Design in Node.js, v5",
         issuedBy: "Frontend Masters",
         img: "/frontend-masters.webp",
@@ -7,15 +43,6 @@ export const certifications = [
         credentialId: "778d1beae6-xdzGqkzYQB",
         link: "https://static.frontendmasters.com/ud/c/778d1beae6/xdzGqkzYQB/api-design-nodejs-v5.pdf",
         tags: ["Node.js", "Express.js", "Typescript", "REST APIs"]
-    },
-    {
-        title: "Intro to Realtime",
-        issuedBy: "Frontend Masters",
-        img: "/frontend-masters.webp",
-        issuedAt: "Mar 2026",
-        credentialId: "778d1beae6-umKMZyYJaD",
-        link: "https://static.frontendmasters.com/ud/c/778d1beae6/umKMZyYJaD/realtime.pdf",
-        tags: ["Socket.io", "Web Sockets", "HTTP"]
     },
     {
         title: "Next.js Fundamentals, v4",
