@@ -1,6 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId } from '@/sanity/env'
+import { z } from 'zod'
+
+const contactSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Invalid email format'),
+  message: z.string().min(1, 'Message is required'),
+})
+
+// Simple in-memory rate limiter (resets on serverless cold starts)
+const rateLimit = new Map<string, { count: number; timestamp: number }>()
+const RATE_LIMIT_WINDOW = 60 * 1000 // 1 minute
+const MAX_REQUESTS = 5
 
 // Create a client with write token for API routes
 const writeClient = createClient({
@@ -14,24 +26,34 @@ const writeClient = createClient({
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
-        const { name, email, message } = body
 
-        // Validate required fields
-        if (!name || !email || !message) {
+        // Rate limiting
+        const ip = request.headers.get('x-forwarded-for') || 'unknown'
+        const now = Date.now()
+        const record = rateLimit.get(ip)
+        
+        if (record && now - record.timestamp < RATE_LIMIT_WINDOW) {
+            if (record.count >= MAX_REQUESTS) {
+                return NextResponse.json(
+                    { error: 'Too many requests. Please try again later.' },
+                    { status: 429 }
+                )
+            }
+            record.count++
+        } else {
+            rateLimit.set(ip, { count: 1, timestamp: now })
+        }
+
+        // Validate payload using zod schema
+        const parsedResult = contactSchema.safeParse(body)
+        if (!parsedResult.success) {
             return NextResponse.json(
-                { error: 'All fields are required' },
+                { error: parsedResult.error.issues[0].message },
                 { status: 400 }
             )
         }
-
-        // Validate email format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(email)) {
-            return NextResponse.json(
-                { error: 'Invalid email format' },
-                { status: 400 }
-            )
-        }
+        
+        const { name, email, message } = parsedResult.data
 
         // Create message document in Sanity
         const result = await writeClient.create({

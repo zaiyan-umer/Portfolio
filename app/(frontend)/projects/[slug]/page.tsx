@@ -1,6 +1,6 @@
 import ExternalLinkHoverEffect from '@/components/projects/ExternalLinkHoverEffect'
 import { Badge } from '@/components/ui/badge'
-import { projectQuery } from '@/lib/sanity.queries'
+import { projectQuery, projectsQuery } from '@/lib/sanity.queries'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/imgUrl'
 import { Github } from 'lucide-react'
@@ -8,7 +8,7 @@ import { PortableText } from 'next-sanity'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const revalidate = 60
+
 
 interface ProjectPageProps {
     params: Promise<{
@@ -17,6 +17,7 @@ interface ProjectPageProps {
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
+    'use cache';
     const resolvedParams = await params
     const slug = resolvedParams?.slug ? decodeURIComponent(resolvedParams.slug) : ''
     const project = await client.fetch(projectQuery, { slug })
@@ -27,7 +28,13 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     }
 }
 
+export async function generateStaticParams() {
+    const projects = await client.fetch(projectsQuery)
+    return projects.map((p: any) => ({ slug: p.slug.current }))
+}
+
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
+    'use cache';
     const resolvedParams = await params
     const slug = resolvedParams?.slug ? decodeURIComponent(resolvedParams.slug) : ''
     const project = await client.fetch(projectQuery, { slug })

@@ -7,9 +7,10 @@ import { ArrowRight, ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const revalidate = 60 // Revalidate every minute
+
 
 export default async function ProjectsPage() {
+  'use cache';
   const projects = await client.fetch(featuredProjectsQuery)
 
   return (

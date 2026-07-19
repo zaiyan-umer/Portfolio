@@ -4,8 +4,13 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { getCertificationsQuery, getCoursesQuery } from "@/lib/sanity.queries";
 
 export default async function EducationPage() {
-  const { data: coursesData } = await sanityFetch({ query: getCoursesQuery });
-  const { data: certificationsData } = await sanityFetch({ query: getCertificationsQuery });
+  const [
+    { data: coursesData },
+    { data: certificationsData }
+  ] = await Promise.all([
+    sanityFetch({ query: getCoursesQuery }),
+    sanityFetch({ query: getCertificationsQuery })
+  ]);
 
   return (
     <main className="layout-standard pt-32 pb-20">

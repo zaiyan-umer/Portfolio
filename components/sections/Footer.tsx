@@ -2,11 +2,16 @@
 
 import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { Separator } from "../ui/separator";
 import { motion } from 'motion/react'
 
 const Footer = () => {
-    const currentYear = new Date().getFullYear();
+    const [currentYear, setCurrentYear] = useState(2026);
+    
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear());
+    }, []);
 
     return (
         <footer className="mt-20">

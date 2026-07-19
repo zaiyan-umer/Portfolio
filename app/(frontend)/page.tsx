@@ -9,9 +9,16 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { getAboutMeQuery, getExperienceQuery, getTechStackQuery } from "@/lib/sanity.queries";
 
 export default async function Home() {
-  const { data: aboutMeData } = await sanityFetch({ query: getAboutMeQuery });
-  const { data: experienceData } = await sanityFetch({ query: getExperienceQuery });
-  const { data: techStackData } = await sanityFetch({ query: getTechStackQuery });
+  'use cache';
+  const [
+    { data: aboutMeData },
+    { data: experienceData },
+    { data: techStackData }
+  ] = await Promise.all([
+    sanityFetch({ query: getAboutMeQuery }),
+    sanityFetch({ query: getExperienceQuery }),
+    sanityFetch({ query: getTechStackQuery })
+  ]);
 
   return (
     <main className="content relative mt-24">

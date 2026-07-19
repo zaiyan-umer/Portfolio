@@ -1,7 +1,5 @@
-'use client';
-
 import { cn } from '@/lib/utils';
-import React, { useEffect, useMemo, useState } from 'react';
+import { cacheLife } from 'next/cache';
 
 export type ContributionDay = {
   date: string;
@@ -18,36 +16,70 @@ const intensityClass = (count: number) => {
 
 const formatDate = (d: Date) => d.toISOString().slice(0, 10);
 
-const ContributionCalendar = ({ className, weeks = 52 }: { className?: string; weeks?: number }) => {
-  const [contributions, setContributions] = useState<ContributionDay[]>([]);
+const ContributionCalendar = async ({ className, weeks = 52 }: { className?: string; weeks?: number }) => {
+  'use cache';
+  cacheLife('hours');
 
-  useEffect(() => {
-    fetch('/api/github')
-      .then((res) => res.json())
-      .then((calendar) => {
+  let contributions: ContributionDay[] = [];
+  
+  if (!process.env.GITHUB_TOKEN || !process.env.GITHUB_USERNAME) {
+    console.warn('GITHUB_TOKEN or GITHUB_USERNAME is missing from environment variables. Skipping GitHub fetch.');
+  } else {
+    try {
+      const res = await fetch('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+            query {
+              user(login: "${process.env.GITHUB_USERNAME}") {
+                contributionsCollection {
+                  contributionCalendar {
+                    weeks {
+                      contributionDays {
+                        date
+                        contributionCount
+                        color
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `,
+        }),
+      });
+      
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`GitHub API responded with ${res.status}: ${errorText}`);
+      }
+      
+      const json = await res.json();
+      
+      if (json.data && json.data.user) {
+        const calendar = json.data.user.contributionsCollection.contributionCalendar;
         const days = calendar.weeks.flatMap((w: any) => w.contributionDays);
-        const mapped: ContributionDay[] = days.map((d: any) => ({
+        contributions = days.map((d: any) => ({
           date: d.date,
           count: d.contributionCount,
         }));
-        setContributions(mapped);
-      })
-      .catch(console.error);
-  }, []);
+      }
+    } catch (error) {
+      console.error('Error fetching github contributions:', error);
+    }
+  }
 
-  const totalContributions = useMemo(
-    () => contributions.reduce((sum, day) => sum + day.count, 0),
-    [contributions],
-  );
+  const totalContributions = contributions.reduce((sum, day) => sum + day.count, 0);
 
   const totalDays = weeks * 7;
   const today = new Date();
 
-  const contributionMap = useMemo(() => {
-    const map = new Map<string, number>();
-    contributions.forEach(({ date, count }) => map.set(date, count));
-    return map;
-  }, [contributions]);
+  const contributionMap = new Map<string, number>();
+  contributions.forEach(({ date, count }) => contributionMap.set(date, count));
 
   // Build days array oldest → newest
   const days = Array.from({ length: totalDays }, (_, idx) => {
