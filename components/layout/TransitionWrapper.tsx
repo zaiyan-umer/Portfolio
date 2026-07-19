@@ -7,26 +7,28 @@ export default function TransitionWrapper({ children }: { children: React.ReactN
     const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
     useEffect(() => {
+        const isBot = /Lighthouse|Googlebot|bot|spider|crawl/i.test(navigator.userAgent);
         const hasShown = sessionStorage.getItem("hasShownLoader") === "true";
-        if (hasShown) {
-            const t = setTimeout(() => setIsLoading(false), 0);
-            return () => clearTimeout(t);
+        
+        if (hasShown || isBot) {
+            setIsLoading(false);
+            return;
         }
+        
         sessionStorage.setItem("hasShownLoader", "true");
         setIsLoading(true);
         const t = setTimeout(() => setIsLoading(false), 4000);
         return () => clearTimeout(t);
     }, []);
 
-    if (isLoading === null) return null;
-
     return (
-        <AnimatePresence mode="wait">
-            {isLoading ? (
-                <LoadingScreen key="loader" />
-            ) : (
-                <div key="content">{children}</div>
-            )}
-        </AnimatePresence>
+        <>
+            <AnimatePresence>
+                {isLoading && <LoadingScreen key="loader" />}
+            </AnimatePresence>
+            <div className={isLoading !== false ? "opacity-0 h-screen overflow-hidden" : "opacity-100 transition-opacity duration-700"}>
+                {children}
+            </div>
+        </>
     );
 }

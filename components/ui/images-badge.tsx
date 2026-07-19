@@ -143,6 +143,7 @@ export function ImagesBadge({
                 <img
                   src={image}
                   alt={`Preview ${index + 1}`}
+                  loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </motion.div>

@@ -17,7 +17,7 @@ const MainBody = () => {
     return (
         <div className='relative'>
             <div className="flex items-center gap-4 mb-6 justify-center sm:justify-start px-2 py-3 layout-standard">
-                <div className='hidden sm:block'><Image src={'/avatar.webp'} alt='Logo' width={28} height={24} className='rounded-md mb-1.5 cursor-pointer' /></div>
+                <div className='hidden sm:block'><Image src={'/avatar.webp'} alt='Logo' width={28} height={24} priority={true} className='rounded-md mb-1.5 cursor-pointer' /></div>
                 <div className='font-bold text-xl flex gap-1 items-center'>
                     <span className='font-semibold text-md'>Hi, I&apos;m Zaiyan Umer</span>
                     <span><VerifiedIcon size={24} fill='var(--gh-blue)' color='var(--gh-hover)' /></span>
