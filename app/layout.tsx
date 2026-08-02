@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeInitializer from "@/components/layout/ThemeInitializer";
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { GlobalErrorBoundary } from "@/components/GlobalErrorBoundary";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,10 +50,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GlobalErrorBoundary>
           <ThemeInitializer />
           <TooltipProvider>
             {children}
           </TooltipProvider>
+        </GlobalErrorBoundary>
       </body>
     </html>
   );

@@ -31,6 +31,7 @@ export default async function ProjectsPage() {
                     alt={project.title}
                     width={600}
                     height={300}
+                    unoptimized
                     className="rounded-lg mb-4"
                   />
                 )}

@@ -60,6 +60,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                             alt={project.title}
                             width={1800}
                             height={800}
+                            unoptimized
                             className="w-full h-auto"
                         />
                     </div>
@@ -119,6 +120,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                                             alt={value.alt || 'Project image'}
                                             width={2200}
                                             height={600}
+                                            unoptimized
                                             className="rounded-lg my-6"
                                         />
                                     ),
