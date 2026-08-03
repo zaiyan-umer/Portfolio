@@ -4,29 +4,32 @@ import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 export default function TransitionWrapper({ children }: { children: React.ReactNode }) {
-    const [isLoading, setIsLoading] = useState<boolean | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [mounted, setMounted] = useState<boolean>(false);
 
     useEffect(() => {
-        const isBot = /Lighthouse|Googlebot|bot|spider|crawl/i.test(navigator.userAgent);
-        const hasShown = sessionStorage.getItem("hasShownLoader") === "true";
-        
-        if (hasShown || isBot) {
-            setIsLoading(false);
-            return;
+        setMounted(true);
+        try {
+            const isBot = /Lighthouse|Googlebot|bot|spider|crawl/i.test(navigator.userAgent);
+            const hasShown = sessionStorage.getItem("hasShownLoader") === "true";
+            
+            if (!hasShown && !isBot) {
+                sessionStorage.setItem("hasShownLoader", "true");
+                setIsLoading(true);
+                const t = setTimeout(() => setIsLoading(false), 3000);
+                return () => clearTimeout(t);
+            }
+        } catch (e) {
+            console.warn("Storage access failed:", e);
         }
-        
-        sessionStorage.setItem("hasShownLoader", "true");
-        setIsLoading(true);
-        const t = setTimeout(() => setIsLoading(false), 4000);
-        return () => clearTimeout(t);
     }, []);
 
     return (
         <>
             <AnimatePresence>
-                {isLoading && <LoadingScreen key="loader" />}
+                {mounted && isLoading && <LoadingScreen key="loader" />}
             </AnimatePresence>
-            <div className={isLoading !== false ? "opacity-0 h-screen overflow-hidden" : "opacity-100 transition-opacity duration-700"}>
+            <div className={isLoading ? "opacity-0 h-screen overflow-hidden" : "opacity-100 transition-opacity duration-700"}>
                 {children}
             </div>
         </>
