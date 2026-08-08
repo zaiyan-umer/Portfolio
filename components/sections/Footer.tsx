@@ -1,8 +1,8 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { Separator } from "../ui/separator";
 import { motion } from 'motion/react'
 
@@ -10,6 +10,7 @@ const Footer = () => {
     const [currentYear, setCurrentYear] = useState(2026);
     
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setCurrentYear(new Date().getFullYear());
     }, []);
 

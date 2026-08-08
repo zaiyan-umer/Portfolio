@@ -20,9 +20,9 @@ type TechStackData = {
 }
 
 export function TechStack({ data, className }: { data: TechStackData[], className?: string }) {
-    if (!data?.length) return null;
-
     const globaltheme = useTheme();
+
+    if (!data?.length) return null;
     return (
         <section id="stack" className={cn("py-6", className)}>
             <div className="px-4">

@@ -9,6 +9,7 @@ export default function TransitionWrapper({ children }: { children: React.ReactN
 
     useEffect(() => {
         setMounted(true);
+        let t: NodeJS.Timeout;
         try {
             const isBot = /Lighthouse|Googlebot|bot|spider|crawl/i.test(navigator.userAgent);
             const hasShown = sessionStorage.getItem("hasShownLoader") === "true";
@@ -16,12 +17,16 @@ export default function TransitionWrapper({ children }: { children: React.ReactN
             if (!hasShown && !isBot) {
                 sessionStorage.setItem("hasShownLoader", "true");
                 setIsLoading(true);
-                const t = setTimeout(() => setIsLoading(false), 3000);
-                return () => clearTimeout(t);
+                t = setTimeout(() => setIsLoading(false), 2500);
             }
         } catch (e) {
-            console.warn("Storage access failed:", e);
+            console.warn("Storage access or transition failed:", e);
+            setIsLoading(false);
         }
+
+        return () => {
+            if (t) clearTimeout(t);
+        };
     }, []);
 
     return (

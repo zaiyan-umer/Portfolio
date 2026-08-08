@@ -1,15 +1,23 @@
 export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2026-01-20'
 
-export const dataset =
-  process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+export const dataset = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_STUDIO_DATASET,
+  'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET'
+)
 
-export const projectId =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
+export const projectId = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_STUDIO_PROJECT_ID,
+  'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
+)
 
-if (typeof window !== 'undefined' && !projectId) {
-  console.warn(
-    '⚠️ [Sanity] NEXT_PUBLIC_SANITY_PROJECT_ID is missing from environment variables.'
-  )
+function assertValue<T>(v: T | undefined, errorMessage: string): T {
+  if (!v) {
+    throw new Error(
+      `⚠️ [Sanity Config Error] ${errorMessage}. Please set this variable in your environment or Vercel project settings.`
+    )
+  }
+  return v
 }
+
 

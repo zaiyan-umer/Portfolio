@@ -17,7 +17,7 @@ export default function LoadingScreen() {
     
     return (
         <motion.div
-            className={`fixed inset-0 z-999 flex items-center justify-center overflow-hidden ${
+            className={`fixed inset-0 z-[999] flex items-center justify-center overflow-hidden ${
                 isDark ? 'bg-[#0D1117]' : 'bg-[#f7f4ef]'
             }`}
             initial={{ opacity: 1 }}

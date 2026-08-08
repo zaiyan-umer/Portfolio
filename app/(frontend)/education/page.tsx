@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ContributionCalendar from "@/components/sections/ContributionCalendar";
 import { CourseWork, Certifications } from "@/components/sections/CourseWork";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -24,7 +25,9 @@ export default async function EducationPage() {
       </header>
 
       <div className="space-y-12">
-        <ContributionCalendar className="mx-auto md:w-fit" />
+        <Suspense fallback={<div className="h-36 w-full rounded-2xl border border-neutral-200 bg-neutral-100/50 animate-pulse dark:border-neutral-800 dark:bg-neutral-900/50" />}>
+          <ContributionCalendar className="mx-auto md:w-fit" />
+        </Suspense>
         <CourseWork data={coursesData} />
         <Certifications data={certificationsData} className="mt-8" />
       </div>

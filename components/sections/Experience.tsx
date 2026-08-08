@@ -22,9 +22,9 @@ type ExperienceData = {
 }
 
 const Experience = ({ data, className }: { data: ExperienceData[], className?: string }) => {
-    if (!data?.length) return null;
-
     const [expanded, setExpanded] = useState<Record<number, boolean>>({ 0: true })
+
+    if (!data?.length) return null;
 
     const toggle = (idx: number) => setExpanded((s) => ({ ...s, [idx]: !s[idx] }))
 

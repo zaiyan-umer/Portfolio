@@ -9,7 +9,6 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { getAboutMeQuery, getExperienceQuery, getTechStackQuery } from "@/lib/sanity.queries";
 
 export default async function Home() {
-  'use cache';
   const [
     { data: aboutMeData },
     { data: experienceData },
