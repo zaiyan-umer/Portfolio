@@ -17,7 +17,7 @@ export default function TransitionWrapper({ children }: { children: React.ReactN
             if (!hasShown && !isBot) {
                 sessionStorage.setItem("hasShownLoader", "true");
                 setIsLoading(true);
-                t = setTimeout(() => setIsLoading(false), 2500);
+                t = setTimeout(() => setIsLoading(false), 4000);
             }
         } catch (e) {
             console.warn("Storage access or transition failed:", e);
