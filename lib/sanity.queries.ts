@@ -2,7 +2,7 @@ import { groq } from 'next-sanity'
 
 // Get all projects
 export const projectsQuery = groq`
-  *[_type == "project"] | order(publishedAt desc) {
+  *[_type == "project"] | order(order asc, publishedAt desc) {
     _id,
     title,
     slug,
@@ -12,13 +12,14 @@ export const projectsQuery = groq`
     liveUrl,
     techStack,
     featured,
-    publishedAt
+    publishedAt,
+    order
   }
 `
 
 // Get featured projects
 export const featuredProjectsQuery = groq`
-  *[_type == "project" && featured == true] | order(publishedAt desc) {
+  *[_type == "project" && featured == true] | order(order asc, publishedAt desc) {
     _id,
     title,
     slug,
@@ -27,7 +28,8 @@ export const featuredProjectsQuery = groq`
     githubUrl,
     liveUrl,
     techStack,
-    publishedAt
+    publishedAt,
+    order
   }
 `
 
@@ -43,7 +45,8 @@ export const projectQuery = groq`
     liveUrl,
     techStack,
     content,
-    publishedAt
+    publishedAt,
+    order
   }
 `
 

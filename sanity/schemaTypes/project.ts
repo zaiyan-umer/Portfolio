@@ -122,6 +122,13 @@ export default defineType({
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
     }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      description: 'Lower numbers appear first. Used for custom ordering of projects.',
+      initialValue: 0,
+    }),
   ],
   preview: {
     select: {
